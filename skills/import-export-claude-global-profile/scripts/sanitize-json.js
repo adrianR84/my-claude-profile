@@ -40,7 +40,7 @@ try {
 
     for (const key of Object.keys(obj)) {
       if (keys.includes(key)) {
-        delete obj[key];
+        obj[key] = "";
         modified = true;
       } else {
         removeKeys(obj[key], keys);
