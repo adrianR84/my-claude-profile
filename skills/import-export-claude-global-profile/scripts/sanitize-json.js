@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 /**
- * sanitize-json.js - Remove specified keys from a JSON file
+ * sanitize-json.js - Remove specified keys from a JSON file (recursive)
  * Usage: node sanitize-json.js <file> <key1> [key2] [...]
- * Reads JSON from file, removes specified top-level keys, writes back.
+ * Reads JSON from file, recursively removes specified keys at any depth, writes back.
  * No external dependencies - uses built-in Node.js modules only.
  */
 
@@ -27,12 +27,28 @@ try {
   const json = JSON.parse(content);
 
   let modified = false;
-  for (const key of keysToRemove) {
-    if (key in json) {
-      delete json[key];
-      modified = true;
+
+  function removeKeys(obj, keys) {
+    if (obj === null || typeof obj !== 'object') return;
+
+    if (Array.isArray(obj)) {
+      for (const item of obj) {
+        removeKeys(item, keys);
+      }
+      return;
+    }
+
+    for (const key of Object.keys(obj)) {
+      if (keys.includes(key)) {
+        delete obj[key];
+        modified = true;
+      } else {
+        removeKeys(obj[key], keys);
+      }
     }
   }
+
+  removeKeys(json, keysToRemove);
 
   if (modified) {
     const dir = path.dirname(filePath);
