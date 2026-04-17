@@ -1,0 +1,2 @@
+#!/bin/sh
+exec 'C:\Users\adria\AppData\Roaming\uv\tools\mcp2cli\Scripts\mcp2cli.EXE' @weather "$@"

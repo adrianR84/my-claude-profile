@@ -1,0 +1,189 @@
+{
+  "version": 2,
+  "plugins": {
+    "superpowers@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\superpowers\\5.0.7",
+        "version": "5.0.7",
+        "installedAt": "2026-03-23T19:32:17.101Z",
+        "lastUpdated": "2026-04-11T23:34:39.086Z",
+        "gitCommitSha": "8ea39819eed74fe2a0338e71789f06b30e953041"
+      }
+    ],
+    "frontend-design@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\frontend-design\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-23T20:32:14.469Z",
+        "lastUpdated": "2026-03-26T22:11:11.332Z",
+        "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
+      }
+    ],
+    "feature-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\feature-dev\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-23T20:46:18.812Z",
+        "lastUpdated": "2026-03-26T22:11:11.340Z",
+        "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
+      }
+    ],
+    "code-simplifier@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\code-simplifier\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T19:47:34.234Z",
+        "lastUpdated": "2026-03-24T19:47:34.234Z",
+        "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
+      }
+    ],
+    "ralph-loop@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\ralph-loop\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-24T19:52:20.057Z",
+        "lastUpdated": "2026-03-30T16:17:27.262Z",
+        "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
+      }
+    ],
+    "chrome-devtools-mcp@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\chrome-devtools-mcp\\latest",
+        "version": "latest",
+        "installedAt": "2026-03-26T11:53:57.826Z",
+        "lastUpdated": "2026-03-26T11:53:57.826Z",
+        "gitCommitSha": "c2d8009ff75f76bce1ec4cf79c2467b50d81725e"
+      }
+    ],
+    "telegram-notifications@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-code-awesome\\telegram-notifications\\80e3b692d08e",
+        "version": "80e3b692d08e",
+        "installedAt": "2026-03-28T20:48:32.982Z",
+        "lastUpdated": "2026-03-30T13:54:03.063Z",
+        "gitCommitSha": "24b104acaec942452b597e7092d09cb3f5c58b65"
+      }
+    ],
+    "toast-notifications@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-code-awesome\\toast-notifications\\1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-03-28T21:18:20.374Z",
+        "lastUpdated": "2026-03-28T21:18:20.374Z",
+        "gitCommitSha": "a3c55a00251e311e4c0adc5204cf57a3e61ecd9f"
+      }
+    ],
+    "protective-hooks@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-code-awesome\\protective-hooks\\573e1d18e41c",
+        "version": "573e1d18e41c",
+        "installedAt": "2026-03-30T13:54:12.725Z",
+        "lastUpdated": "2026-04-12T09:11:10.864Z",
+        "gitCommitSha": "67fa9e922d718c54c7cf28c34e2cd87a948cb2b5"
+      }
+    ],
+    "hookify@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\hookify\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-30T16:47:20.393Z",
+        "lastUpdated": "2026-03-30T16:47:20.393Z"
+      }
+    ],
+    "security-guidance@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\security-guidance\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-30T17:00:05.748Z",
+        "lastUpdated": "2026-03-30T17:00:05.748Z"
+      }
+    ],
+    "playground@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\playground\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-03-30T18:00:29.670Z",
+        "lastUpdated": "2026-03-30T18:00:29.670Z"
+      }
+    ],
+    "claude-code-setup@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\claude-code-setup\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-03-30T18:04:35.939Z",
+        "lastUpdated": "2026-03-30T18:04:35.939Z"
+      }
+    ],
+    "plugin-dev@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\plugin-dev\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-10T17:12:26.863Z",
+        "lastUpdated": "2026-04-11T23:34:35.810Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      }
+    ],
+    "rss-aggregator@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-code-awesome\\rss-aggregator\\1.1.1",
+        "version": "1.1.1",
+        "installedAt": "2026-04-12T19:50:15.496Z",
+        "lastUpdated": "2026-04-12T19:50:15.496Z",
+        "gitCommitSha": "cd935e3dd726373df72cefa07c6e6bb0d6beed45"
+      }
+    ],
+    "claude-md-management@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\claude-md-management\\1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-11T17:52:24.577Z",
+        "lastUpdated": "2026-04-11T17:52:24.577Z",
+        "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
+      }
+    ],
+    "skill-creator@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\skill-creator\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-13T11:08:23.892Z",
+        "lastUpdated": "2026-04-13T11:08:23.892Z"
+      }
+    ],
+    "code-review@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-plugins-official\\code-review\\unknown",
+        "version": "unknown",
+        "installedAt": "2026-04-12T16:29:09.316Z",
+        "lastUpdated": "2026-04-12T16:29:09.316Z"
+      }
+    ],
+    "minimal-claude@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "C:\\Users\\adria\\.claude\\plugins\\cache\\claude-code-awesome\\minimal-claude\\1.6.1",
+        "version": "1.6.1",
+        "installedAt": "2026-04-16T19:25:55.992Z",
+        "lastUpdated": "2026-04-16T19:25:55.992Z",
+        "gitCommitSha": "b764eae40531e82d2e28ffc452a308dfa7db4cb5"
+      }
+    ]
+  }
+}

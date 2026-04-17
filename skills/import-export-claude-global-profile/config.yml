@@ -1,0 +1,21 @@
+# Claude Profile Sync — Configuration
+# Docs: https://github.com/adrianR84/my-claude-profile
+
+# ─── Backup ───────────────────────────────────────────────────────────────────
+
+# Local backup folder (default: ~/.claude-profile)
+backup_folder: ~/.claude-profile
+
+# GitHub remote — leave empty to disable remote sync (local-only mode)
+github_repo: https://github.com/adrianR84/my-claude-profile
+
+# ─── What to sync ──────────────────────────────────────────────────────────────
+
+# Folders to sync (space-separated)
+folders: skills agents commands hooks
+
+# Plugin files to sync (space-separated, from plugins/)
+plugin_files: installed_plugins.json known_marketplaces.json
+
+# Individual files to sync
+files: settings.json AGENTS.md CLAUDE.md
