@@ -1,6 +1,6 @@
 ---
 name: import-export-claude-global-profile
-description: Export, import, or diff Claude Code global settings. Works with a local backup folder (~/.claude-profile/) by default, and optionally pushes to/pulls from a GitHub repo. Trigger whenever the user says "sync claude profile", "compare claude settings", "diff claude backup", "backup claude", "restore claude from backup", "check claude differences", "/export-claude-profile", "/import-claude-profile", or similar. Also trigger when the user wants to configure or change their backup settings.
+description: Export, import, or diff Claude Code global settings. Trigger whenever the user says "sync claude profile", "compare claude settings", "diff claude backup", "backup claude", "restore claude from backup", "check claude differences", "/export-claude-profile", "/import-claude-profile", or similar. Also trigger when the user wants to configure or change their backup settings.
 allowed-tools: Bash(bash *) Read Write
 ---
 
@@ -37,6 +37,12 @@ plugin_files: installed_plugins.json known_marketplaces.json
 files: settings.json AGENTS.md CLAUDE.md
 ```
 
+## On first load
+
+**Always tell the user this at the start of the conversation:**
+
+> This skill is configurable. All settings — backup folder, GitHub repo, and what to sync — are in `~/.claude/skills/import-export-claude-global-profile/config.yml`. You can customize any of them. Would you like to review or change any settings before we proceed?
+
 ## Operation selection
 
 **If the user clearly states what they want, proceed directly:**
@@ -50,7 +56,7 @@ Present all three options:
 - **Export** — Save local settings to backup folder
 - **Import** — Restore settings from backup folder to ~/.claude/
 
-**Want GitHub sync?** If no repo is configured and the user asks for it, offer to add the `github_repo` key to `config.yml`.
+**Want to change what gets synced or where?** Edit `~/.claude/skills/import-export-claude-global-profile/config.yml`.
 
 ## Scripts
 
@@ -82,11 +88,12 @@ Before running export or import, user wants to see what differences exist betwee
 User wants to back up their Claude Code settings.
 
 ### Steps
-1. **Choose sync mode** — Ask the user to choose:
+1. **Run diff first** — Execute `diff.sh` and show the output to the user. This shows what would change.
+2. **Choose sync mode** — Ask the user to choose:
    - **Merge sync (default):** Source items added/updated in backup. Items only in backup are preserved. Safer.
    - **Clean sync:** Backup made to exactly match source. Removes items not in source.
-2. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/export.sh [merge|clean]`
-3. **Report** — Share the output.
+3. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/export.sh [merge|clean]`
+4. **Report** — Share the output.
 
 ### What gets exported
 Defined by `folders`, `files`, and `plugin_files` in `config.yml`. Defaults:
@@ -105,11 +112,12 @@ If `github_repo` is set in config, export also commits and pushes to GitHub. If 
 User wants to restore their Claude Code settings from the backup folder.
 
 ### Steps
-1. **Choose sync mode** — Ask the user to choose:
+1. **Run diff first** — Execute `diff.sh` and show the output to the user. This shows what would change.
+2. **Choose sync mode** — Ask the user to choose:
    - **Merge sync (default):** Backup items added/updated in ~/.claude/. Items only in ~/.claude/ are preserved.
    - **Clean sync:** ~/.claude/ made to exactly match backup. Removes items not in backup.
-2. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/import.sh [merge|clean]`
-3. **Report** — Share the output.
+3. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/import.sh [merge|clean]`
+4. **Report** — Share the output.
 
 ### What gets imported
 Defined by `folders`, `files`, and `plugin_files` in `config.yml`. Defaults match export above.

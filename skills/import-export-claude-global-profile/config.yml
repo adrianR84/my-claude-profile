@@ -17,5 +17,5 @@ folders: skills agents commands hooks
 # Plugin files to sync (space-separated, from plugins/)
 plugin_files: installed_plugins.json known_marketplaces.json
 
-# Individual files to sync
+# Individual files to sync (space-separated)
 files: settings.json AGENTS.md CLAUDE.md
