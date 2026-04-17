@@ -4,23 +4,23 @@
       "source": "github",
       "repo": "anthropics/claude-plugins-official"
     },
-    "installLocation": "",
-    "lastUpdated": "2026-04-17T17:44:21.202Z"
+    "installLocation": "plugins/marketplaces/claude-plugins-official",
+    "lastUpdated": "2026-04-13T08:31:02.904Z"
   },
   "claude-code-awesome": {
     "source": {
       "source": "git",
       "url": "https://github.com/adrianR84/claude-code-marketplace.git"
     },
-    "installLocation": "",
-    "lastUpdated": "2026-04-17T17:44:24.274Z"
+    "installLocation": "plugins/marketplaces/claude-code-awesome",
+    "lastUpdated": "2026-04-16T19:25:27.207Z"
   },
   "thedotmack": {
     "source": {
       "source": "github",
       "repo": "thedotmack/claude-mem"
     },
-    "installLocation": "",
-    "lastUpdated": "2026-04-17T17:44:30.081Z"
+    "installLocation": "plugins/marketplaces/thedotmack",
+    "lastUpdated": "2026-04-12T20:37:20.299Z"
   }
 }

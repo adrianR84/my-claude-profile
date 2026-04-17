@@ -4,7 +4,7 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/superpowers/5.0.7",
         "version": "5.0.7",
         "installedAt": "2026-03-23T19:32:17.101Z",
         "lastUpdated": "2026-04-11T23:34:39.086Z",
@@ -14,7 +14,7 @@
     "frontend-design@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/frontend-design/unknown",
         "version": "unknown",
         "installedAt": "2026-03-23T20:32:14.469Z",
         "lastUpdated": "2026-03-26T22:11:11.332Z",
@@ -24,7 +24,7 @@
     "feature-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/feature-dev/unknown",
         "version": "unknown",
         "installedAt": "2026-03-23T20:46:18.812Z",
         "lastUpdated": "2026-03-26T22:11:11.340Z",
@@ -34,7 +34,7 @@
     "code-simplifier@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/code-simplifier/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-03-24T19:47:34.234Z",
         "lastUpdated": "2026-03-24T19:47:34.234Z",
@@ -44,7 +44,7 @@
     "ralph-loop@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/ralph-loop/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-03-24T19:52:20.057Z",
         "lastUpdated": "2026-03-30T16:17:27.262Z",
@@ -54,7 +54,7 @@
     "chrome-devtools-mcp@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/chrome-devtools-mcp/latest",
         "version": "latest",
         "installedAt": "2026-03-26T11:53:57.826Z",
         "lastUpdated": "2026-03-26T11:53:57.826Z",
@@ -64,7 +64,7 @@
     "telegram-notifications@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-code-awesome/telegram-notifications/80e3b692d08e",
         "version": "80e3b692d08e",
         "installedAt": "2026-03-28T20:48:32.982Z",
         "lastUpdated": "2026-03-30T13:54:03.063Z",
@@ -74,7 +74,7 @@
     "toast-notifications@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-code-awesome/toast-notifications/1.0.1",
         "version": "1.0.1",
         "installedAt": "2026-03-28T21:18:20.374Z",
         "lastUpdated": "2026-03-28T21:18:20.374Z",
@@ -84,7 +84,7 @@
     "protective-hooks@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-code-awesome/protective-hooks/573e1d18e41c",
         "version": "573e1d18e41c",
         "installedAt": "2026-03-30T13:54:12.725Z",
         "lastUpdated": "2026-04-12T09:11:10.864Z",
@@ -94,7 +94,7 @@
     "hookify@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/hookify/unknown",
         "version": "unknown",
         "installedAt": "2026-03-30T16:47:20.393Z",
         "lastUpdated": "2026-03-30T16:47:20.393Z"
@@ -103,7 +103,7 @@
     "security-guidance@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/security-guidance/unknown",
         "version": "unknown",
         "installedAt": "2026-03-30T17:00:05.748Z",
         "lastUpdated": "2026-03-30T17:00:05.748Z"
@@ -112,7 +112,7 @@
     "playground@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/playground/unknown",
         "version": "unknown",
         "installedAt": "2026-03-30T18:00:29.670Z",
         "lastUpdated": "2026-03-30T18:00:29.670Z"
@@ -121,7 +121,7 @@
     "claude-code-setup@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/claude-code-setup/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-03-30T18:04:35.939Z",
         "lastUpdated": "2026-03-30T18:04:35.939Z"
@@ -130,7 +130,7 @@
     "plugin-dev@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/plugin-dev/unknown",
         "version": "unknown",
         "installedAt": "2026-04-10T17:12:26.863Z",
         "lastUpdated": "2026-04-11T23:34:35.810Z",
@@ -140,7 +140,7 @@
     "rss-aggregator@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-code-awesome/rss-aggregator/1.1.1",
         "version": "1.1.1",
         "installedAt": "2026-04-12T19:50:15.496Z",
         "lastUpdated": "2026-04-12T19:50:15.496Z",
@@ -150,7 +150,7 @@
     "claude-md-management@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/claude-md-management/1.0.0",
         "version": "1.0.0",
         "installedAt": "2026-04-11T17:52:24.577Z",
         "lastUpdated": "2026-04-11T17:52:24.577Z",
@@ -160,7 +160,7 @@
     "skill-creator@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/skill-creator/unknown",
         "version": "unknown",
         "installedAt": "2026-04-13T11:08:23.892Z",
         "lastUpdated": "2026-04-13T11:08:23.892Z"
@@ -169,7 +169,7 @@
     "code-review@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-plugins-official/code-review/unknown",
         "version": "unknown",
         "installedAt": "2026-04-12T16:29:09.316Z",
         "lastUpdated": "2026-04-12T16:29:09.316Z"
@@ -178,7 +178,7 @@
     "minimal-claude@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "",
+        "installPath": "plugins/cache/claude-code-awesome/minimal-claude/1.6.1",
         "version": "1.6.1",
         "installedAt": "2026-04-16T19:25:55.992Z",
         "lastUpdated": "2026-04-16T19:25:55.992Z",

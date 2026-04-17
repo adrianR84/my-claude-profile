@@ -108,22 +108,15 @@ elif [ "$MODE" = "clean" ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# 5. Sanitize plugin JSON files (remove machine-specific paths)
+# 5. Sanitize plugin JSON files (convert absolute → relative paths)
 # ---------------------------------------------------------------------------
-echo "Sanitizing plugin files..."
+echo "Sanitizing plugin files (export mode)..."
 SANITIZE_SCRIPT="$SCRIPT_DIR/sanitize-json.js"
+CLAUDE_CONFIG_DIR_VALUE="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
 for file in $PLUGIN_FILES; do
   dst_file="$DST/plugins/$file"
-
   if [ -f "$dst_file" ]; then
-    case "$file" in
-      installed_plugins.json)
-        node "$SANITIZE_SCRIPT" "$dst_file" installPath
-        ;;
-      known_marketplaces.json)
-        node "$SANITIZE_SCRIPT" "$dst_file" installLocation
-        ;;
-    esac
+    node "$SANITIZE_SCRIPT" export "$dst_file" --config-dir "$CLAUDE_CONFIG_DIR_VALUE"
   fi
 done
 

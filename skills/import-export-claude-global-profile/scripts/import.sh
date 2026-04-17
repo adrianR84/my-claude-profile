@@ -140,7 +140,20 @@ for file in $PLUGIN_FILES; do
 done
 
 # ---------------------------------------------------------------------------
-# 5. Summary
+# 5. Sanitize plugin JSON files (convert relative → absolute paths)
+# ---------------------------------------------------------------------------
+echo "Sanitizing plugin files (import mode)..."
+SANITIZE_SCRIPT="$SCRIPT_DIR/sanitize-json.js"
+CLAUDE_CONFIG_DIR_VALUE="${CLAUDE_CONFIG_DIR:-$HOME/.claude}"
+for file in $PLUGIN_FILES; do
+  dst_file="$DST/plugins/$file"
+  if [ -f "$dst_file" ]; then
+    node "$SANITIZE_SCRIPT" import "$dst_file" --config-dir "$CLAUDE_CONFIG_DIR_VALUE"
+  fi
+done
+
+# ---------------------------------------------------------------------------
+# 6. Summary
 # ---------------------------------------------------------------------------
 echo ""
 echo "Done. Sync mode: $MODE"
