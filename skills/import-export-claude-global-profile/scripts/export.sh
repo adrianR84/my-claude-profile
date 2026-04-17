@@ -108,7 +108,27 @@ elif [ "$MODE" = "clean" ]; then
 fi
 
 # ---------------------------------------------------------------------------
-# 5. GitHub push (only if repo is configured)
+# 5. Sanitize plugin JSON files (remove machine-specific paths)
+# ---------------------------------------------------------------------------
+echo "Sanitizing plugin files..."
+SANITIZE_SCRIPT="$SCRIPT_DIR/sanitize-json.js"
+for file in $PLUGIN_FILES; do
+  dst_file="$DST/plugins/$file"
+
+  if [ -f "$dst_file" ]; then
+    case "$file" in
+      installed_plugins.json)
+        node "$SANITIZE_SCRIPT" "$dst_file" installPath
+        ;;
+      known_marketplaces.json)
+        node "$SANITIZE_SCRIPT" "$dst_file" installLocation
+        ;;
+    esac
+  fi
+done
+
+# ---------------------------------------------------------------------------
+# 6. GitHub push (only if repo is configured)
 # ---------------------------------------------------------------------------
 if [ -z "$GITHUB_REPO" ]; then
   echo ""

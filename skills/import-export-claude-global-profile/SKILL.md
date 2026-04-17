@@ -1,6 +1,6 @@
 ---
 name: import-export-claude-global-profile
-description: Export, import, or diff Claude Code global settings. Trigger whenever the user says "sync claude profile", "compare claude settings", "diff claude backup", "backup claude", "restore claude from backup", "check claude differences", "/export-claude-profile", "/import-claude-profile", or similar. Also trigger when the user wants to configure or change their backup settings.
+description: Export, import, or diff Claude Code global settings. Trigger whenever the user says "sync claude profile", "compare claude settings", "diff claude backup", "backup claude", "restore claude from backup", "check claude differences", "export claude profile", "import claude profile", or similar.
 allowed-tools: Bash(bash *) Read Write
 ---
 
