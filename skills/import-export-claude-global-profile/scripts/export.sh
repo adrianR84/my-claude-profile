@@ -135,35 +135,22 @@ fi
 # GitHub is configured — initialize/push to remote
 cd "$DST"
 
-# Normalize GitHub URL: detect and fix common corruptions (e.g. //github.com/ or git@github.com:)
-NORMALIZED_REPO="$GITHUB_REPO"
-case "$GITHUB_REPO" in
-  //*)
-    # Fix double-slash URLs (e.g. //github.com/ -> https://github.com/)
-    NORMALIZED_REPO="https:${GITHUB_REPO#//}"
-    ;;
-  git@*)
-    # Convert SSH URLs to HTTPS for consistency
-    NORMALIZED_REPO="https://github.com/${GITHUB_REPO#git@github.com:}"
-    ;;
-esac
-
 # Initialize git if needed
 if [ ! -d ".git" ]; then
   git init
   echo "Created git repo at $DST"
-  git remote add origin "$NORMALIZED_REPO"
-  echo "Added remote: $NORMALIZED_REPO"
+  git remote add origin "$GITHUB_REPO"
+  echo "Added remote: $GITHUB_REPO"
 fi
 
-# Ensure remote is set correctly (check URL validity, not just string equality)
+# Ensure remote is set correctly
 ORIGIN_URL=$(git remote get-url origin 2>/dev/null)
 if [ -z "$ORIGIN_URL" ]; then
-  git remote add origin "$NORMALIZED_REPO"
-  echo "Added remote: $NORMALIZED_REPO"
-elif [ "$ORIGIN_URL" != "$NORMALIZED_REPO" ]; then
-  git remote set-url origin "$NORMALIZED_REPO"
-  echo "Updated remote to: $NORMALIZED_REPO"
+  git remote add origin "$GITHUB_REPO"
+  echo "Added remote: $GITHUB_REPO"
+elif [ "$ORIGIN_URL" != "$GITHUB_REPO" ]; then
+  git remote set-url origin "$GITHUB_REPO"
+  echo "Updated remote to: $GITHUB_REPO"
 fi
 
 # Check for changes
@@ -180,10 +167,10 @@ COMMIT_SHA=$(git rev-parse --short HEAD)
 echo "Committed: $COMMIT_SHA"
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-echo "Pushing to $NORMALIZED_REPO..."
+echo "Pushing to $GITHUB_REPO..."
 git push -u origin "$BRANCH" --force 2>/dev/null || git push -u origin "$BRANCH"
 
 echo ""
 echo "Done. Synced to: $DST"
-echo "Pushed to: $NORMALIZED_REPO"
+echo "Pushed to: $GITHUB_REPO"
 echo "Commit: $COMMIT_SHA"

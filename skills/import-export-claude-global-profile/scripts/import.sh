@@ -22,20 +22,7 @@ PLUGIN_FILES="$SYNC_PLUGIN_FILES"
 FILES="$SYNC_FILES"
 
 # ---------------------------------------------------------------------------
-# 1. Normalize GitHub URL (detect and fix common corruptions)
-# ---------------------------------------------------------------------------
-NORMALIZED_REPO="$GITHUB_REPO"
-case "$GITHUB_REPO" in
-  //*)
-    NORMALIZED_REPO="https:${GITHUB_REPO#//}"
-    ;;
-  git@*)
-    NORMALIZED_REPO="https://github.com/${GITHUB_REPO#git@github.com:}"
-    ;;
-esac
-
-# ---------------------------------------------------------------------------
-# 2. Pull from GitHub if repo is configured and repo has a .git folder
+# 1. Pull from GitHub if repo is configured and repo has a .git folder
 # ---------------------------------------------------------------------------
 if [ -n "$GITHUB_REPO" ] && [ -d "$SRC/.git" ]; then
   echo "Pulling latest from GitHub..."
@@ -48,9 +35,9 @@ elif [ -z "$GITHUB_REPO" ] && [ ! -d "$SRC" ]; then
   exit 1
 elif [ -n "$GITHUB_REPO" ] && [ ! -d "$SRC/.git" ]; then
   # Repo is configured but local is not a git repo — clone it
-  echo "Cloning $NORMALIZED_REPO to $SRC..."
+  echo "Cloning $GITHUB_REPO to $SRC..."
   rm -rf "$SRC"
-  git clone "$NORMALIZED_REPO" "$SRC"
+  git clone "$GITHUB_REPO" "$SRC"
 fi
 
 # ---------------------------------------------------------------------------

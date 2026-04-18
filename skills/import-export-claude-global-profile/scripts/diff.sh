@@ -87,9 +87,12 @@ compare_folder() {
   fi
 
   lines=()
-  diff -rq "$src" "$dst" 2>/dev/null | while IFS= read -r line; do
+  tmp=$(mktemp)
+  diff -rq "$src" "$dst" 2>/dev/null > "$tmp"
+  while IFS= read -r line; do
     lines+=("$line")
-  done
+  done < "$tmp"
+  rm -f "$tmp"
 
   if [ ${#lines[@]} -eq 0 ]; then
     echo -e "      ${GREEN}✓ (identical)${NC}"
@@ -189,14 +192,17 @@ echo -e "  ${YELLOW}←${NC} $count_dst_only only in backup"
 if [ -n "$diff_details" ]; then
   echo ""
   echo -e "${BOLD}Details:${NC}"
-  echo "$diff_details" | while IFS= read -r d; do
+  tmp=$(mktemp)
+  echo "$diff_details" > "$tmp"
+  while IFS= read -r d; do
     case "$d" in
       "≠"*) echo -e "  ${RED}$d${NC}" ;;
       "→"*) echo -e "  ${YELLOW}$d${NC}" ;;
       "←"*) echo -e "  ${YELLOW}$d${NC}" ;;
       *)    echo "  $d" ;;
     esac
-  done
+  done < "$tmp"
+  rm -f "$tmp"
 fi
 
 echo ""
