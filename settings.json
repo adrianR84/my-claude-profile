@@ -190,5 +190,13 @@
   "effortLevel": "high",
   "autoUpdatesChannel": "latest",
   "skipDangerousModePermissionPrompt": true,
-  "ENABLE_TOOL_SEARCH": "true"
+  "ENABLE_TOOL_SEARCH": "true",
+  "extraKnownMarketplaces": {
+    "agent-toolkit": {
+      "source": {
+        "source": "github",
+        "repo": "softaworks/agent-toolkit"
+      }
+    }
+  }
 }

@@ -1,0 +1,98 @@
+{
+  "version": 3,
+  "lines": [
+    [
+      {
+        "id": "534bbb35-ef3e-401e-a996-2cbebc2a3880",
+        "type": "current-working-dir"
+      },
+      {
+        "id": "4",
+        "type": "separator",
+        "character": "|"
+      },
+      {
+        "id": "5",
+        "type": "git-branch",
+        "color": "magenta"
+      },
+      {
+        "id": "6",
+        "type": "separator"
+      },
+      {
+        "id": "7",
+        "type": "git-changes",
+        "color": "yellow"
+      },
+      {
+        "id": "ba2fb876-2d78-41eb-9166-d9d9f84d864a",
+        "type": "separator"
+      }
+    ],
+    [
+      {
+        "id": "2f3ea658-3d69-4ff3-9cbc-63435c284abd",
+        "type": "model"
+      },
+      {
+        "id": "eddc0221-b962-4a1c-8fae-07a5655f693a",
+        "type": "separator"
+      },
+      {
+        "id": "640468b3-42d0-457d-a979-cf5ec63c4570",
+        "type": "thinking-effort"
+      },
+      {
+        "id": "c96f2270-9afe-4706-97c6-f3dbd4411555",
+        "type": "separator"
+      },
+      {
+        "id": "5580bb07-c3be-4d14-8ff8-c6d445be6e8c",
+        "type": "context-bar"
+      },
+      {
+        "id": "6d7dde67-ab46-40c8-95c7-eb720b0aed6f",
+        "type": "separator"
+      },
+      {
+        "id": "65011085-f3c1-4a4b-b0f1-f130b93527fa",
+        "type": "tokens-cached"
+      },
+      {
+        "id": "dab1824e-17de-435c-ba0e-0dc0d2db77cd",
+        "type": "separator"
+      },
+      {
+        "id": "e8c9b478-0ef5-4d52-9a54-950c9c837b4e",
+        "type": "tokens-input"
+      },
+      {
+        "id": "cfd4fda3-1bc7-456f-b9fb-f542985a3bb4",
+        "type": "separator"
+      },
+      {
+        "id": "ad256a83-b5bd-4397-934b-4e21e6283ace",
+        "type": "tokens-output"
+      }
+    ],
+    []
+  ],
+  "flexMode": "full-minus-40",
+  "compactThreshold": 60,
+  "colorLevel": 2,
+  "inheritSeparatorColors": false,
+  "globalBold": false,
+  "powerline": {
+    "enabled": false,
+    "separators": [
+      ""
+    ],
+    "separatorInvertBackground": [
+      false
+    ],
+    "startCaps": [],
+    "endCaps": [],
+    "autoAlign": false
+  }
+}

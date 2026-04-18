@@ -41,7 +41,11 @@ files: settings.json AGENTS.md CLAUDE.md
 
 **Always tell the user this at the start of the conversation:**
 
-> This skill is configurable. All settings — backup folder, GitHub repo, and what to sync — are in `~/.claude/skills/import-export-claude-global-profile/config.yml`. You can customize any of them. Would you like to review or change any settings before we proceed?
+> This skill is configurable. All settings — backup folder, GitHub repo, and what to sync — are in `~/.claude/skills/import-export-claude-global-profile/config.yml`. You can customize any of them.
+>
+> Your current `CLAUDE_CONFIG_DIR` environment variable is: **\<value\>** (or "not set" if not defined). If set, this overrides the default `~/.claude/` path for both export and import.
+>
+> Would you like to review or change any settings before we proceed?
 
 ## Operation selection
 

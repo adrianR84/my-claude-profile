@@ -5,6 +5,12 @@
 - **OS**: Windows 11 Home 10.0.26200
 - **Terminal**: bash (Git Bash / MSYS2)
 
+## Shell / Cross-Platform Compatibility
+
+- **Shell scripts**: Use `sh` syntax, not bash-only features (arrays, `[[ ]]`, process substitution `<()`). Scripts must work across Git Bash, WSL, Linux, and macOS without modification.
+- **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, and macOS. Use POSIX-compliant patterns. Avoid OS-specific commands or paths.
+- If a feature is Bash-only, state it explicitly and explain why it's needed.
+
 ## Node.js Package Management
 
 Use `pnpm` instead of `npm`/`yarn` for Node.js packages. `pnpm add`, `pnpm install`, `pnpm remove`.

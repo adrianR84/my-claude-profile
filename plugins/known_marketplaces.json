@@ -22,5 +22,13 @@
     },
     "installLocation": "plugins/marketplaces/thedotmack",
     "lastUpdated": "2026-04-12T20:37:20.299Z"
+  },
+  "agent-toolkit": {
+    "source": {
+      "source": "github",
+      "repo": "softaworks/agent-toolkit"
+    },
+    "installLocation": "plugins/marketplaces/agent-toolkit",
+    "lastUpdated": "2026-04-18T07:37:58.329Z"
   }
 }
