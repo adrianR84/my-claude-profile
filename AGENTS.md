@@ -7,7 +7,6 @@
 
 ## Shell / Cross-Platform Compatibility
 
-- **Shell scripts**: Use `sh` syntax, not bash-only features (arrays, `[[ ]]`, process substitution `<()`). Scripts must work across Git Bash, WSL, Linux, and macOS without modification.
 - **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, and macOS. Use POSIX-compliant patterns. Avoid OS-specific commands or paths.
 - If a feature is Bash-only, state it explicitly and explain why it's needed.
 
