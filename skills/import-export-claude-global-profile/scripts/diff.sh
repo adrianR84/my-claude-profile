@@ -86,12 +86,52 @@ compare_folder() {
     return
   fi
 
-  lines=()
   diff -rq "$src" "$dst" 2>/dev/null | while IFS= read -r line; do
-    lines+=("$line")
+    case "$line" in
+      "Files "*)
+        rest="${line#Files }"
+        src_file="${rest%% and ${dst}*}"
+        rel="${src_file#$src/}"
+        depth=$(echo "$rel" | tr -cd '/' | wc -c)
+        [ "$depth" -le 2 ] || continue
+        echo -e "      ${RED}≠${NC} $rel"
+        count_diff=$((count_diff + 1))
+        diff_details="${diff_details}${diff_details:+$'\n'}≠ $folder/$rel"
+        ;;
+      "Only in ${src}"*)
+        rest="${line#Only in }"
+        dir="${rest%%: *}"
+        name="${rest##*: }"
+        rel_dir="${dir#$src/}"
+        [ "$rel_dir" = "$src" ] && rel_dir=""
+        full_rel="${rel_dir:+$rel_dir/}$name"
+        depth=$(echo "$full_rel" | tr -cd '/' | wc -c)
+        [ "$depth" -le 2 ] || continue
+        icon=""
+        [ -d "$dir/$name" ] && icon="📁 "
+        echo -e "      ${YELLOW}→${NC} ${icon}${full_rel}"
+        count_src_only=$((count_src_only + 1))
+        diff_details="${diff_details}${diff_details:+$'\n'}→ $folder/$full_rel"
+        ;;
+      "Only in ${dst}"*)
+        rest="${line#Only in }"
+        dir="${rest%%: *}"
+        name="${rest##*: }"
+        rel_dir="${dir#$dst/}"
+        [ "$rel_dir" = "$dst" ] && rel_dir=""
+        full_rel="${rel_dir:+$rel_dir/}$name"
+        depth=$(echo "$full_rel" | tr -cd '/' | wc -c)
+        [ "$depth" -le 2 ] || continue
+        icon=""
+        [ -d "$dir/$name" ] && icon="📁 "
+        echo -e "      ${YELLOW}←${NC} ${icon}${full_rel}"
+        count_dst_only=$((count_dst_only + 1))
+        diff_details="${diff_details}${diff_details:+$'\n'}← $folder/$full_rel"
+        ;;
+    esac
   done
 
-  if [ ${#lines[@]} -eq 0 ]; then
+  if [ -z "$(diff -rq "$src" "$dst" 2>/dev/null)" ]; then
     echo -e "      ${GREEN}✓ (identical)${NC}"
     count_same=$((count_same + 1))
     return
