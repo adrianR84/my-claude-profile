@@ -1,8 +1,6 @@
 ---
 name: agents-run
-description: Spawn one or more subagents to work in parallel on the user's request. Use whenever the user asks to "run multiple agents", "parallelize", "fork agents", "spawn agents", "run in parallel", "use multiple agents", or when a task is complex enough to benefit from being split across several autonomous workers. Also use when the user explicitly prefixes a request with "fork:" or "agents:".
-context: fork
-allowed-tools: Agent
+description: Spawn one or more subagents to work in parallel on the user's request. Use whenever the user asks to "run multiple agents", "parallelize", "fork agents", "spawn agents", "run in parallel", "use multiple agents", or when a task is complex enough to benefit from being split across several autonomous workers.
 ---
 
 ## Overview

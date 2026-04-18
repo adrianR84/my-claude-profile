@@ -23,18 +23,22 @@ parse_yaml_config() {
 
     # Skip blank lines and comment-only lines
     [ -z "$line" ] && continue
-    [[ "$line" =~ ^#.*$ ]] && continue
+    case "$line" in
+      \#*) continue ;;
+    esac
 
     # Remove inline comments (but not inside quoted values)
     in_comment=0
-    for ((i=0; i<${#line}; i++)); do
-      local ch="${line:i:1}"
-      if [[ "$ch" == "'" ]] || [[ "$ch" == '"' ]]; then
+    i=0
+    while [ $i -lt ${#line} ]; do
+      ch="${line:i:1}"
+      if [ "$ch" = "'" ] || [ "$ch" = '"' ]; then
         in_comment=$((1 - in_comment))
-      elif [[ "$ch" == "#" ]] && ((in_comment == 0)); then
+      elif [ "$ch" = "#" ] && [ $in_comment -eq 0 ]; then
         line="${line:0:i}"
         break
       fi
+      i=$((i + 1))
     done
 
     # Trim trailing whitespace after comment strip
@@ -42,9 +46,9 @@ parse_yaml_config() {
     [ -z "$line" ] && continue
 
     # Parse key: value
-    if [[ "$line" =~ ^([a-zA-Z_][a-zA-Z0-9_]*)[[:space:]]*:[[:space:]]*(.*)$ ]]; then
-      key="${BASH_REMATCH[1]}"
-      value="${BASH_REMATCH[2]}"
+    if [ -n "$(echo "$line" | grep -E '^([a-zA-Z_][a-zA-Z0-9_]*)[[:space:]]*:')" ]; then
+      key="$(echo "$line" | sed -n 's/^\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*:.*/\1/p')"
+      value="$(echo "$line" | sed -n 's/^.*:[[:space:]]*//p')"
 
       # Strip quotes from value
       value="${value#\"}"
@@ -57,7 +61,7 @@ parse_yaml_config() {
 
       case "$key" in
         backup_folder)
-          BACKUP_FOLDER="${value/\~/$HOME}"
+          BACKUP_FOLDER="$(echo "$value" | sed "s|^~|$HOME|")"
           ;;
         github_repo)
           GITHUB_REPO="$value"

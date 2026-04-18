@@ -8,7 +8,7 @@
 ## Shell / Cross-Platform Compatibility
 
 - **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, and macOS. Use POSIX-compliant patterns. Avoid OS-specific commands or paths.
-- If a feature is Bash-only, state it explicitly and explain why it's needed.
+- **Bash 3.2 maximum**: All shell scripts must be compatible with bash 3.2 (default on macOS). Bash 4.0+ features are NOT allowed in shared scripts.
 
 ## Node.js Package Management
 
