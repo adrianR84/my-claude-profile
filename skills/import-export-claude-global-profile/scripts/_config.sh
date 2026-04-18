@@ -64,6 +64,9 @@ parse_yaml_config() {
           BACKUP_FOLDER="$(echo "$value" | sed "s|^~|$HOME|")"
           ;;
         github_repo)
+          # Trim leading/trailing whitespace from the URL
+          value="${value#"${value%%[![:space:]]*}"}"
+          value="${value%"${value##*[![:space:]]}"}"
           GITHUB_REPO="$value"
           ;;
         folders)

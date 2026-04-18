@@ -168,9 +168,13 @@ echo "Committed: $COMMIT_SHA"
 
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 echo "Pushing to $GITHUB_REPO..."
-git push -u origin "$BRANCH" --force 2>/dev/null || git push -u origin "$BRANCH"
-
-echo ""
-echo "Done. Synced to: $DST"
-echo "Pushed to: $GITHUB_REPO"
-echo "Commit: $COMMIT_SHA"
+if git push -u origin "$BRANCH" 2>/dev/null; then
+  echo ""
+  echo "Done. Synced to: $DST"
+  echo "Pushed to: $GITHUB_REPO"
+  echo "Commit: $COMMIT_SHA"
+else
+  echo ""
+  echo "Push failed. Commit exists locally at: $DST"
+  echo "Manual push needed: cd \"$DST\" && git push -u origin \"$BRANCH\""
+fi
