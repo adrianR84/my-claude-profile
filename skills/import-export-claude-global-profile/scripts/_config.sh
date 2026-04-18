@@ -48,7 +48,7 @@ parse_yaml_config() {
     # Parse key: value
     if [ -n "$(echo "$line" | grep -E '^([a-zA-Z_][a-zA-Z0-9_]*)[[:space:]]*:')" ]; then
       key="$(echo "$line" | sed -n 's/^\([a-zA-Z_][a-zA-Z0-9_]*\)[[:space:]]*:.*/\1/p')"
-      value="$(echo "$line" | sed -n 's/^.*:[[:space:]]*//p')"
+      value="$(echo "$line" | sed -n 's/^[^:]*:[[:space:]]*//p')"
 
       # Strip quotes from value
       value="${value#\"}"
