@@ -184,13 +184,9 @@
     "plugin-dev@claude-plugins-official": true,
     "rss-aggregator@claude-code-awesome": true,
     "skill-creator@claude-plugins-official": true,
-    "minimal-claude@claude-code-awesome": true
+    "minimal-claude@claude-code-awesome": true,
+    "micro-skill-pipeline@claude-code-awesome": true
   },
-  "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
-  "autoUpdatesChannel": "latest",
-  "skipDangerousModePermissionPrompt": true,
-  "ENABLE_TOOL_SEARCH": "true",
   "extraKnownMarketplaces": {
     "agent-toolkit": {
       "source": {
@@ -198,5 +194,10 @@
         "repo": "softaworks/agent-toolkit"
       }
     }
-  }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "autoUpdatesChannel": "latest",
+  "skipDangerousModePermissionPrompt": true,
+  "ENABLE_TOOL_SEARCH": "true"
 }

@@ -184,6 +184,16 @@
         "lastUpdated": "2026-04-16T19:25:55.992Z",
         "gitCommitSha": "b764eae40531e82d2e28ffc452a308dfa7db4cb5"
       }
+    ],
+    "micro-skill-pipeline@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/micro-skill-pipeline/1.0.0",
+        "version": "1.0.0",
+        "installedAt": "2026-04-20T15:01:21.616Z",
+        "lastUpdated": "2026-04-20T15:01:21.616Z",
+        "gitCommitSha": "14d37165332cdcb39c3f540fc5f40f6cbcc37509"
+      }
     ]
   }
 }
