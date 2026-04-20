@@ -42,9 +42,7 @@ files: settings.json AGENTS.md CLAUDE.md
 **Always tell the user this at the start of the conversation:**
 
 > This skill is configurable. All settings — backup folder, GitHub repo, and what to sync — are in `~/.claude/skills/import-export-claude-global-profile/config.yml`. You can customize any of them.
->
-> Your current `CLAUDE_CONFIG_DIR` environment variable is: **\<value\>** (or "not set" if not defined). If set, this overrides the default `~/.claude/` path for both export and import.
->
+
 > Would you like to review or change any settings before we proceed?
 
 ## Operation selection
@@ -79,7 +77,37 @@ Before running export or import, user wants to see what differences exist betwee
 
 ### Steps
 1. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/diff.sh`
-2. **Report** — Show the output verbatim in a code block, then summarize what it means.
+2. **Parse output** — Extract differences per item from script output.
+3. **Display summary table** — Show results in this format:
+
+```
+● Diff complete.
+
+  ┌─────────────────────────────────┬────────────────────┐
+  │              Item               │       Status       │
+  ├─────────────────────────────────┼────────────────────┤
+  │ skills/                         │ Identical          │
+  ├─────────────────────────────────┼────────────────────┤
+  │ hooks/                          │ 2 changes          │
+  ├─────────────────────────────────┼────────────────────┤
+  │ settings.json                   │ Not in backup      │
+  ├─────────────────────────────────┼────────────────────┤
+  │ AGENTS.md                       │ 1 change           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ CLAUDE.md                       │ Identical          │
+  ├─────────────────────────────────┼────────────────────┤
+  │ plugins/installed_plugins.json  │ Identical          │
+  ├─────────────────────────────────┼────────────────────┤
+  │ plugins/known_marketplaces.json │ 3 changes          │
+  └─────────────────────────────────┴────────────────────┘
+```
+
+Possible statuses:
+- **Identical** — no differences
+- **Not in backup** — exists locally, missing in backup
+- **Not local** — exists in backup, missing locally
+- **N changes** — has differences (count them from diff output)
+- **Contents differ** — for files with content differences
 
 ### What it uses from config
 `backup_folder`, `folders`, `files`, and `plugin_files` from `config.yml`.
@@ -97,7 +125,8 @@ User wants to back up their Claude Code settings.
    - **Merge sync (default):** Source items added/updated in backup. Items only in backup are preserved. Safer.
    - **Clean sync:** Backup made to exactly match source. Removes items not in source.
 3. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/export.sh [merge|clean]`
-4. **Report** — Share the output.
+4. **Parse output** — Extract synced items from script output (look for "Synced:" or "Restored:" lines).
+5. **Display summary table** — See [Summary table](#summary-table) below.
 
 ### What gets exported
 Defined by `folders`, `files`, and `plugin_files` in `config.yml`. Defaults:
@@ -121,13 +150,49 @@ User wants to restore their Claude Code settings from the backup folder.
    - **Merge sync (default):** Backup items added/updated in ~/.claude/. Items only in ~/.claude/ are preserved.
    - **Clean sync:** ~/.claude/ made to exactly match backup. Removes items not in backup.
 3. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/import.sh [merge|clean]`
-4. **Report** — Share the output.
+4. **Parse output** — Extract restored items from script output (look for "Synced:" or "Restored:" lines).
+5. **Display summary table** — See [Summary table](#summary-table) below.
 
 ### What gets imported
 Defined by `folders`, `files`, and `plugin_files` in `config.yml`. Defaults match export above.
 
 ### GitHub
 If `github_repo` is set in config, import also pulls from GitHub first. If not, it's local-only.
+
+---
+
+## Summary table
+
+After export or import, display the operation results in this format:
+
+```
+● {Operation} complete.
+
+  ┌─────────────────────────────────┬────────────────────┐
+  │              Item               │       Status       │
+  ├─────────────────────────────────┼────────────────────┤
+  │ skills/                         │ {Status}           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ hooks/                          │ {Status}           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ settings.json                   │ {Status}           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ AGENTS.md                       │ {Status}           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ CLAUDE.md                       │ {Status}           │
+  ├─────────────────────────────────┼────────────────────┤
+  │ plugins/installed_plugins.json  │ {Status} + sanitized │
+  ├─────────────────────────────────┼────────────────────┤
+  │ plugins/known_marketplaces.json │ {Status} + sanitized │
+  └─────────────────────────────────┴────────────────────┘
+```
+
+Rules:
+- **{Operation}** = "Export" for export, "Import" for import
+- **{Status}** = "Synced" for export, "Restored" for import
+- Plugin JSON files get suffix "(local path)" for export, "(global path)" for import
+- Include sync destination (export) or source (import) below the table
+- Include GitHub push/pull status if applicable
 
 ---
 
