@@ -61,16 +61,6 @@
         "gitCommitSha": "c2d8009ff75f76bce1ec4cf79c2467b50d81725e"
       }
     ],
-    "telegram-notifications@claude-code-awesome": [
-      {
-        "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/telegram-notifications/80e3b692d08e",
-        "version": "80e3b692d08e",
-        "installedAt": "2026-03-28T20:48:32.982Z",
-        "lastUpdated": "2026-03-30T13:54:03.063Z",
-        "gitCommitSha": "24b104acaec942452b597e7092d09cb3f5c58b65"
-      }
-    ],
     "toast-notifications@claude-code-awesome": [
       {
         "scope": "user",
@@ -193,6 +183,26 @@
         "installedAt": "2026-04-20T15:01:21.616Z",
         "lastUpdated": "2026-04-20T15:01:21.616Z",
         "gitCommitSha": "14d37165332cdcb39c3f540fc5f40f6cbcc37509"
+      }
+    ],
+    "llm-wiki-compiler@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/llm-wiki-compiler/2.0.0",
+        "version": "2.0.0",
+        "installedAt": "2026-04-20T20:57:15.554Z",
+        "lastUpdated": "2026-04-20T20:57:15.554Z",
+        "gitCommitSha": "718f5d5dbd4862d693f5936e5e8577ddccc3cca3"
+      }
+    ],
+    "tdd-guard@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/tdd-guard/1.2.0",
+        "version": "1.2.0",
+        "installedAt": "2026-04-21T12:47:50.525Z",
+        "lastUpdated": "2026-04-21T12:47:50.525Z",
+        "gitCommitSha": "457c1f9a377ba64d41893c8393bc7e7f70e67312"
       }
     ]
   }

@@ -13,15 +13,7 @@
       "url": "https://github.com/adrianR84/claude-code-marketplace.git"
     },
     "installLocation": "plugins/marketplaces/claude-code-awesome",
-    "lastUpdated": "2026-04-20T15:01:04.900Z"
-  },
-  "thedotmack": {
-    "source": {
-      "source": "github",
-      "repo": "thedotmack/claude-mem"
-    },
-    "installLocation": "plugins/marketplaces/thedotmack",
-    "lastUpdated": "2026-04-12T20:37:20.299Z"
+    "lastUpdated": "2026-04-21T12:47:20.497Z"
   },
   "agent-toolkit": {
     "source": {
@@ -29,6 +21,6 @@
       "repo": "softaworks/agent-toolkit"
     },
     "installLocation": "plugins/marketplaces/agent-toolkit",
-    "lastUpdated": "2026-04-18T07:37:58.329Z"
+    "lastUpdated": "2026-04-21T16:29:17.829Z"
   }
 }
