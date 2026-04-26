@@ -1,6 +1,6 @@
 ---
-name: toggle-all-permissions
-description: Manually invoked only - do not trigger automatically. Toggles bypassPermissions mode in the current project's .claude/settings.local.json. If bypassPermissions is currently enabled, removes the defaultMode property. If not enabled, sets defaultMode to bypassPermissions. Use when user explicitly says "toggle permissions", "toggle all permissions", "allow all permissions", "allow all perms", or "/toggle-all-permissions".
+name: toggle-bypassPermissions
+description: Manually invoked only - do not trigger automatically. Toggles bypassPermissions mode in the current project's .claude/settings.local.json. If bypassPermissions is currently enabled, removes the defaultMode property. If not enabled, sets defaultMode to bypassPermissions. Use when user explicitly says "toggle permissions", "toggle all permissions", "allow all permissions", "allow all perms", or "/toggle-bypassPermissions".
 disable-model-invocation: true
 ---
 

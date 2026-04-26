@@ -1,66 +1,71 @@
 # Agent Configuration
 
-## Environment
-
-- **OS**: Windows 11 Home 10.0.26200
-- **Terminal**: bash (Git Bash / MSYS2)
-
 ## Shell / Cross-Platform Compatibility
 
-- **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, and macOS. Use POSIX-compliant patterns. Avoid OS-specific commands or paths.
-- **Bash 3.2 maximum**: All shell scripts must be compatible with bash 3.2 (default on macOS). Bash 4.0+ features are NOT allowed in shared scripts.
+- **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, macOS. POSIX-compliant patterns. No OS-specific commands or paths.
+- **Bash 3.2 maximum**: Shell scripts must work with bash 3.2 (default on macOS). Bash 4.0+ features NOT allowed in shared scripts.
+- **Prefer Node.js over shell scripts**: When a task can use Node.js or shell script, choose Node.js. Native cross-platform, faster repeated invocations, standard APIs (`fetch`, `fs`, `path`) handle OS paths correctly. Shell scripts only when Node.js unavailable or impractical.
+- **Built-in tools first**: Use Claude Code built-in tools (Read, Edit, Glob, Grep, Bash) before reaching for external commands or scripts. Keeps things lightweight and avoids process spawn overhead.
 
-## Node.js Package Management
+## Package Management
 
-Use `pnpm` instead of `npm`/`yarn` for Node.js packages. `pnpm add`, `pnpm install`, `pnpm remove`.
+Node.js: `pnpm` (not `npm`/`yarn`). Python: `uv` (not `pip`/`conda`/`poetry`).
 
-## Python Package Management
+## Obsidian Vault
 
-Use `uv` instead of `pip`/`conda`/`poetry` for Python packages. `uv pip install`, `uv add`, `uv tool install`.
+Vault path: `C:\Users\adria\.obsidian\AI-Research`
 
-## Important
+## Language
 
-Write ALL instructions, settings, skills, program comments, code comments, documentation, and any text meant for developers in **English**, regardless of the language the user is speaking. Ensures consistency and accessibility across codebase.
+Write ALL instructions, settings, skills, code comments, documentation in **English**, regardless of user's language. Ensures shared codebase accessible to all contributors.
+
+## Coding Guidelines
+
+1. **Before writing any code**, describe your approach and wait for approval. Always ask clarifying questions before writing any code if requirements are ambiguous.
+2. **If a task requires changes to more than 3 files**, stop and break it into smaller tasks first.
+3. **After writing code**, list what could break and suggest tests to cover it.
+4. **When there's a bug**, start by writing a test that reproduces it, then fix it until the test passes.
+5. **Every time I correct you**, add a new rule to the CLAUDE.md file so it never happens again.
 
 # Agent Guidelines
 
-Behavioral guidelines to reduce common LLM coding mistakes. Merge with project-specific instructions.
+Behavioral guidelines. Merge with project-specific instructions.
 
-**Tradeoff:** Bias toward caution over speed. For trivial tasks, use judgment.
+**Tradeoff:** Bias caution over speed. Trivial tasks use judgment.
 
 ## 1. Think Before Coding
 
-**Don't assume. Don't hide confusion. Surface tradeoffs.**
+Don't assume. Don't hide confusion. Surface tradeoffs.
 
 Before implementing:
-- State assumptions. If uncertain, ask.
-- Multiple interpretations exist? Present them, don't pick silently.
+- State assumptions. Uncertain? Ask.
+- Multiple valid interpretations? Present all, don't pick silently.
 - Simpler approach exists? Say so. Push back when warranted.
-- Something unclear? Stop. Name what's confusing. Ask.
+- Something unclear? Stop. Name confusion. Ask.
 
 ## 2. Simplicity First
 
-**Minimum code that solves the problem. Nothing speculative.**
+Minimum code solving the problem. Nothing speculative.
 
 - No features beyond what was asked.
 - No abstractions for single-use code.
 - No "flexibility" or "configurability" not requested.
 - No error handling for impossible scenarios.
-- Write 200 lines when 50 would do? Rewrite.
+- 50 lines solve it? Don't write 200.
 
-Ask: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
+Ask: "Senior engineer call this overcomplicated?" If yes, rewrite.
 
 ## 3. Surgical Changes
 
-**Touch only what you must. Clean up only your own mess.**
+Touch only what you must. Clean up only your own mess.
 
 When editing:
-- Don't "improve" adjacent code, comments, or formatting.
+- Don't "improve" adjacent code, comments, formatting.
 - Don't refactor things that aren't broken.
-- Match existing style, even if you'd do it differently.
+- Match existing style, even if you'd do differently.
 - Unrelated dead code? Mention it, don't delete it.
 
-When your changes create orphans:
+When changes create orphans:
 - Remove imports/variables/functions YOUR changes made unused.
 - Don't remove pre-existing dead code unless asked.
 
@@ -68,22 +73,22 @@ Test: every changed line traces to user's request.
 
 ## 4. Goal-Driven Execution
 
-**Define success criteria. Loop until verified.**
+Define success criteria. Loop until verified.
 
 Transform tasks into verifiable goals:
 - "Add validation" → "Write tests for invalid inputs, then make them pass"
-- "Fix the bug" → "Write a test that reproduces it, then make it pass"
+- "Fix bug" → "Write test reproducing it, then make it pass"
 - "Refactor X" → "Ensure tests pass before and after"
 
-For multi-step tasks:
+Multi-step tasks:
 ```
 1. [Step] → verify: [check]
 2. [Step] → verify: [check]
 3. [Step] → verify: [check]
 ```
 
-Strong criteria let you loop independently. Weak criteria ("make it work") require constant clarification.
+Strong criteria → independent loops. Weak criteria ("make it work") → constant clarification needed.
 
 ---
 
-**Working if:** fewer unnecessary diffs, fewer rewrites, clarifying questions before mistakes.
+Working if: fewer unnecessary diffs, fewer rewrites, clarifying questions before mistakes.

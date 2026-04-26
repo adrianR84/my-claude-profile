@@ -1,7 +1,7 @@
 ---
 name: daily-ai
 description: Get a daily AI industry digest from curated podcasts, X/Twitter, and blogs. Use whenever someone says "AI digest", "what's happening in AI", "AI news today", "AI updates", or invokes /daily-ai. Fetches pre-generated feed files from GitHub and presents a curated summary. Does NOT do live web search.
-allowed-tools: Bash(bash *)
+allowed-tools: Bash(node *)
 ---
 
 # Daily AI Digest
@@ -16,20 +16,27 @@ Fetch the latest AI industry digest from curated podcasts, X/Twitter builders, a
 
 Data from [zarazhangrui/follow-builders](https://github.com/zarazhangrui/follow-builders) — updated daily by GitHub Actions. This skill is inspired by the original follow-builders project and uses the same feed sources.
 
+## Caching
+
+Feeds are cached locally and only refetched when the remote file changes. This avoids redundant downloads across invocations.
+
+- **Cache location**: `~/.claude/skills/daily-ai/cache/`
+- **How it works**: On each run, the script sends a HEAD request to check the remote ETag/Last-Modified. If the remote has changed since the last cached copy, it downloads the new version. Otherwise it serves the cached copy.
+- **No expiry**: Cached data is kept indefinitely. Refetch only happens when GitHub reports a file change.
+
+Override cache directory with `DAILY_AI_CACHE_DIR=/path/to/cache`. To force re-fetch regardless of remote state, set `DAILY_AI_FORCE_REFRESH=1`.
+
 ## Requires
 
-- `jq` — install if missing:
-  - Windows: `winget install jqlang.jq` or `choco install jq`
-  - macOS: `brew install jq`
-  - Linux: `sudo apt install jq` / `sudo dnf install jq`
+Node.js 18+ (uses native fetch)
 
 ## Run
 
 ```bash
-bash C:/Users/adria/.claude/skills/daily-ai/scripts/fetch-feeds.sh
+node C:/Users/adria/.claude/skills/daily-ai/scripts/fetch-feeds.js
 ```
 
-The script fetches all 3 feeds from GitHub, validates JSON, caps X posts at top 10 by engagement (`likes + retweets*2`), and outputs a single JSON blob to stdout.
+The script checks remote ETag/Last-Modified for all 3 feeds, fetches only if changed, validates JSON, caps X posts at top 10 by engagement (`likes + retweets*2`), and outputs a single JSON blob to stdout.
 
 Override repo with `DAILY_AI_REPO=owner/repo` env var. Override X post limit with `DAILY_AI_X_LIMIT=20`.
 
@@ -42,6 +49,8 @@ The script outputs JSON with this shape:
   "status": "ok",
   "generatedAt": "2026-04-21T20:08:52Z",
   "repo": "zarazhangrui/follow-builders",
+  "cacheDir": "~/.claude/skills/daily-ai/cache",
+  "cacheInfo": [{"source": "podcasts", "cacheAge": 1713744532}],
   "available": {"podcasts": 1, "x": 1, "blogs": 1},
   "stats": {
     "podcastEpisodes": 1,
@@ -60,6 +69,7 @@ The script outputs JSON with this shape:
 - `blogs[].content` is truncated to 500 chars
 - `x[]` contains only the top 10 tweets globally by engagement
 - `x[].bx_handle` and `x[].bx_name` are the tweet author's handle and display name
+- `cacheInfo` shows the unix timestamp when each feed was last cached
 
 ## Remix Prompt
 

@@ -2,10 +2,10 @@
   "env": {
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
     "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "1",
+    "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_NO_FLICKER": "1",
-    "MAX_THINKING_TOKENS": "31999",
+    "MAX_THINKING_TOKENS": "91999",
     "CLAUDE_CODE_EFFORT_LEVEL": "max",
     "alwaysThinkingEnabled": "true",
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet",
@@ -36,6 +36,7 @@
       "WebFetch",
       "WebSearch",
       "Write",
+      "Bash(obsidian *)",
       "Bash(cd *)",
       "Bash(cat *)",
       "Bash(chmod *)",
@@ -191,10 +192,13 @@
     "minimal-claude@claude-code-awesome": true,
     "micro-skill-pipeline@claude-code-awesome": true,
     "llm-wiki-compiler@claude-code-awesome": true,
-    "tdd-guard@claude-code-awesome": true
+    "tdd-guard@claude-code-awesome": true,
+    "obsidian@claude-code-awesome": true
   },
-  "effortLevel": "high",
+  "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
+  "autoMemoryEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "ENABLE_TOOL_SEARCH": "true"
+  "ENABLE_TOOL_SEARCH": "true",
+  "mcpServers": {}
 }

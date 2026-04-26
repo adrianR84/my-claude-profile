@@ -204,6 +204,16 @@
         "lastUpdated": "2026-04-21T12:47:50.525Z",
         "gitCommitSha": "457c1f9a377ba64d41893c8393bc7e7f70e67312"
       }
+    ],
+    "obsidian@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/obsidian/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-04-25T17:37:04.026Z",
+        "lastUpdated": "2026-04-25T17:42:31.970Z",
+        "gitCommitSha": "fa1e131a014576ff8f8919f191a7ca8d8fded39b"
+      }
     ]
   }
 }
