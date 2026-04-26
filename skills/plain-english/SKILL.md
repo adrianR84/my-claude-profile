@@ -1,6 +1,7 @@
 ---
 name: plain-english
-description: Explain complex topics in simple, plain terms. Use this skill whenever the user asks to "explain like I'm 5", wants something explained "simply", "in plain English", "in layman's terms", or provides a URL/text and asks for an easy-to-understand explanation. Supports three levels: "simple" (plain explanation, default), "age 10" (pre-teen, analogies), and "age 15" (teenager, more depth and nuance). Perfect for breaking down technical concepts, documentation, code, APIs, or any confusing subject.
+description: >
+  Explain complex topics in simple, plain terms. Use this skill whenever the user asks to "explain like I'm 5", wants something explained "simply", "in plain English", "in layman's terms", or provides a URL/text and asks for an easy-to-understand explanation. Supports three levels: "simple" (plain explanation, default), "age 10" (pre-teen, analogies), and "age 15" (teenager, more depth and nuance). Perfect for breaking down technical concepts, documentation, code, APIs, or any confusing subject.
 ---
 
 # Plain English — Explain Anything Simply

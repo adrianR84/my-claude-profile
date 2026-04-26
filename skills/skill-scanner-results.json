@@ -1,0 +1,657 @@
+{
+  "scanDate": "2026-04-26",
+  "totalSkills": 42,
+  "summary": {
+    "clean": 29,
+    "low": 11,
+    "medium": 2,
+    "high": 0,
+    "critical": 0
+  },
+  "skills": [
+    {
+      "name": "agents-run",
+      "path": "C:\\Users\\adria\\.claude\\skills\\agents-run",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "daily-ai",
+      "path": "C:\\Users\\adria\\.claude\\skills\\daily-ai",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "weather",
+      "path": "C:\\Users\\adria\\.claude\\skills\\weather",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "WEATHER-001",
+          "severity": "Informational",
+          "category": "Validation",
+          "description": "No allowed-tools declared in frontmatter",
+          "location": "SKILL.md:1-5",
+          "confidence": "Medium",
+          "remediation": "Add allowed-tools: Read, Bash for least-privilege clarity"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "mcp-context7",
+      "path": "C:\\Users\\adria\\.claude\\skills\\mcp-context7",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "MCP-CTX7-001",
+          "severity": "Informational",
+          "category": "Validation",
+          "description": "No allowed-tools declared in frontmatter",
+          "location": "SKILL.md:1-8",
+          "confidence": "Low",
+          "remediation": "Consider adding allowed-tools: Read, Grep, Glob, Bash"
+        },
+        {
+          "id": "MCP-CTX7-002",
+          "severity": "False Positive",
+          "category": "Malicious Code",
+          "description": "Scanner flagged curl POST — confirmed false positive, script is legitimate JSON-RPC wrapper for Context7 API",
+          "location": "scripts/mcp-context7.sh:14,25,31",
+          "confidence": "Low"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "mcp-notion",
+      "path": "C:\\Users\\adria\\.claude\\skills\\mcp-notion",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "SKILL-NOTION-001",
+          "severity": "False Positive",
+          "category": "Malicious Code",
+          "description": "Shell HTTP requests flagged by scanner — confirmed false positive, all calls are legitimate Notion API calls",
+          "location": "scripts/mcp-notion.sh:50,91,102,109",
+          "confidence": "High"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "learn",
+      "path": "C:\\Users\\adria\\.claude\\skills\\learn",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "LEARN-001",
+          "severity": "False Positive",
+          "category": "Prompt Injection",
+          "description": "Scanner hit on 'DAN mode' in SKILL.md security scan phase — documenting detection patterns, not performing them",
+          "location": "SKILL.md:613",
+          "confidence": "Low"
+        },
+        {
+          "id": "LEARN-002",
+          "severity": "False Positive",
+          "category": "Prompt Injection",
+          "description": "'bypass safety' in SECURITY.md pattern library — documenting threats to detect, not performing them",
+          "location": "references/SECURITY.md:170",
+          "confidence": "Low"
+        },
+        {
+          "id": "LEARN-003",
+          "severity": "False Positive",
+          "category": "Prompt Injection",
+          "description": "'ignore previous instructions' and 'DAN mode' in SECURITY.md pattern table — documentation",
+          "location": "references/SECURITY.md:226,229",
+          "confidence": "Low"
+        },
+        {
+          "id": "LEARN-004",
+          "severity": "False Positive",
+          "category": "Prompt Injection",
+          "description": "JSON example with 'ignore previous instructions' in reporting schema documentation",
+          "location": "references/SECURITY.md:557",
+          "confidence": "Low"
+        }
+      ],
+      "notes": [
+        "Remote API calls to agentskill.sh — inherent to skill's design (skill registry). Skill re-scans every fetched skill before install.",
+        "Self-update mechanism overwrites SKILL.md from API — includes SHA verification step.",
+        "agentskill.sh flagged as untrusted by scanner — overly conservative, this is the skill's expected primary domain."
+      ]
+    },
+    {
+      "name": "plain-english",
+      "path": "C:\\Users\\adria\\.claude\\skills\\plain-english",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "Fixed: YAML frontmatter now uses block scalar (>) to handle unquoted colons in description"
+      ]
+    },
+    {
+      "name": "toggle-bypassPermissions",
+      "path": "C:\\Users\\adria\\.claude\\skills\\toggle-bypassPermissions",
+      "riskLevel": "Medium",
+      "findings": [
+        {
+          "id": "SKILL-SEC-01",
+          "severity": "Informational",
+          "category": "Excessive Permissions",
+          "description": "No allowed-tools declared in frontmatter — agent operates with full inherited permissions",
+          "location": "SKILL.md:1-5",
+          "confidence": "Medium",
+          "remediation": "Add allowed-tools: Read, Write, Glob"
+        },
+        {
+          "id": "SKILL-SEC-02",
+          "severity": "Design-level",
+          "category": "Excessive Permissions",
+          "description": "Skill's sole purpose is enabling bypassPermissions in settings.local.json — inherently high-privilege state. disable-model-invocation: true is the correct safeguard.",
+          "location": "SKILL.md body",
+          "confidence": "Low",
+          "remediation": "Ensure disable-model-invocation: true is respected by agent harness"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "import-export-claude-global-profile",
+      "path": "C:\\Users\\adria\\.claude\\skills\\import-export-claude-global-profile",
+      "riskLevel": "Medium",
+      "findings": [
+        {
+          "id": "SKILL-SEC-001",
+          "severity": "Medium",
+          "category": "Config/Memory Poisoning",
+          "description": "Import script overwrites settings.json, AGENTS.md, CLAUDE.md, and hooks/ directory without backup or confirmation. A compromised backup could inject arbitrary permissions or hook instructions.",
+          "location": "SKILL.md + scripts/import.sh:87-88",
+          "confidence": "High",
+          "remediation": "Create timestamped backup before overwriting. Print warning. Optionally diff and require user confirmation for sensitive files."
+        },
+        {
+          "id": "SKILL-SEC-002",
+          "severity": "Low",
+          "category": "Excessive Permissions",
+          "description": "Bash tool granted with wildcard pattern bash * but SKILL.md only uses three fixed scripts. Broader than necessary.",
+          "location": "SKILL.md:4",
+          "confidence": "Medium",
+          "remediation": "Narrow to specific scripts"
+        }
+      ],
+      "notes": [
+        "4 critical scanner flags in sanitize-json.js all false positives — JSDoc comments incorrectly flagged.",
+        "export.sh uses git add -A — user should verify backup folder contents are safe to version control."
+      ]
+    },
+    {
+      "name": "mcp-tavily-mcp",
+      "path": "C:\\Users\\adria\\.claude\\skills\\mcp-tavily-mcp",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "SKILL-SEC-002",
+          "severity": "False Positive",
+          "category": "Malicious Code",
+          "description": "Scanner flagged curl POST to Tavily API — confirmed false positive, this is the skill's intended mechanism",
+          "location": "scripts/mcp-tavily-mcp.sh:14,26,33",
+          "confidence": "High"
+        }
+      ],
+      "notes": [
+        "Fixed: hardcoded API key removed from script — now reads from ${TAVILY_API_KEY} env var.",
+        "API key stored in ~/.claude/settings.local.json (local-only, not exported to Git).",
+        "Ensure settings.local.json is excluded from GitHub export skill."
+      ]
+    },
+    {
+      "name": "create-AGENTS.md",
+      "path": "C:\\Users\\adria\\.claude\\skills\\create-AGENTS.md",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "import-claude-global-profile",
+      "path": "C:\\Users\\adria\\.claude\\skills\\disabled\\import-claude-global-profile",
+      "riskLevel": "Medium",
+      "findings": [
+        {
+          "id": "IMPORT-GLOBAL-001",
+          "severity": "Medium",
+          "category": "Excessive Permissions",
+          "description": "Bash scope listed as bash * in frontmatter but SKILL.md body restricts to one specific script. Overly broad if harness enforces full scope.",
+          "location": "SKILL.md:4",
+          "confidence": "Medium",
+          "remediation": "Narrow Bash scope to specific script path"
+        }
+      ],
+      "notes": [
+        "Script has backup-before-overwrite safeguard. Symlink risk: cp -r dereferences symlinks as regular files — safe."
+      ]
+    },
+    {
+      "name": "permissions-command",
+      "path": "C:\\Users\\adria\\.claude\\skills\\disabled\\permissions-command",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "PERM-SEC-001",
+          "severity": "Low",
+          "category": "Validation",
+          "description": "No explicit allowed-tools in frontmatter — tools listed inline in body instead.",
+          "location": "SKILL.md frontmatter",
+          "confidence": "Medium",
+          "remediation": "Add explicit allowed-tools field"
+        }
+      ],
+      "notes": [
+        "Well-designed security guardrails: restricts Bash to fine-grained patterns, operates at project scope only, no self-reinforcement."
+      ]
+    },
+    {
+      "name": "agents-md",
+      "path": "C:\\Users\\adria\\.agents\\skills\\agents-md",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "autobrowse",
+      "path": "C:\\Users\\adria\\.agents\\skills\\autobrowse",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "Browserbase skill. Inner agent harness has strong security controls: command allowlisting (only 'browse'), shell-less execution (execFileSync), custom argument tokenization, output truncation at 50k chars, 30s timeout.",
+        "Permission profile: Bash Read Write Edit Glob Grep Agent — medium but justified by design.",
+        "Workspace writes cleanly isolated to ./autobrowse/ in CWD. Graduation step writes to ~/.claude/skills/ only for final SKILL.md.",
+        "Dependencies: @anthropic-ai/sdk (official) and dotenv (standard). Both trusted."
+      ]
+    },
+    {
+      "name": "caveman",
+      "path": "C:\\Users\\adria\\.agents\\skills\\caveman",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "caveman-compress",
+      "path": "C:\\Users\\adria\\.agents\\skills\\caveman-compress",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "6 Python scripts reviewed. All clean: no eval/exec, subprocess.run uses explicit list form, optional tiktoken dependency gracefully degrades.",
+        "File content embedded in compression prompt could theoretically be attacker-controlled if user compresses a malicious file — self-harm only scenario."
+      ]
+    },
+    {
+      "name": "codebase-to-course",
+      "path": "C:\\Users\\adria\\.agents\\skills\\codebase-to-course",
+      "riskLevel": "Medium",
+      "findings": [
+        {
+          "id": "CBCOURSE-001",
+          "severity": "Medium",
+          "category": "Excessive Permissions",
+          "description": "Missing allowed-tools declaration — skill operates with full tool access of invoking agent",
+          "location": "SKILL.md frontmatter",
+          "confidence": "High",
+          "remediation": "Add allowed-tools: Read, Grep, Glob, Bash, Write"
+        },
+        {
+          "id": "CBCOURSE-002",
+          "severity": "Low",
+          "category": "Validation / Cross-Platform",
+          "description": "Git clone instruction uses Unix /tmp/ path incompatible with Windows host",
+          "location": "SKILL.md:23",
+          "confidence": "High",
+          "remediation": "Use mktemp -d or $TEMP/$TMPDIR env vars for cross-platform compatibility"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "code-review",
+      "path": "C:\\Users\\adria\\.agents\\skills\\code-review",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "SQL injection and XSS examples in text are educational content (what to flag in reviews), not malicious payloads."
+      ]
+    },
+    {
+      "name": "code-review-pro",
+      "path": "C:\\Users\\adria\\.agents\\skills\\code-review-pro",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "SKILL-VAL-001",
+          "severity": "Medium",
+          "category": "Validation / Excessive Permissions",
+          "description": "No allowed-tools declared in frontmatter — skill inherits full tool access. Uses Task for parallel subagent spawning.",
+          "location": "SKILL.md:1-5",
+          "confidence": "High",
+          "remediation": "Add allowed-tools: Read, Grep, Glob, Write, Task"
+        },
+        {
+          "id": "SKILL-VAL-002",
+          "severity": "Info",
+          "category": "Validation",
+          "description": "Scanner reported frontmatter:null — confirmed false positive, manual inspection shows valid YAML. Likely Windows path handling issue in scanner.",
+          "location": "SKILL.md:1",
+          "confidence": "Medium"
+        }
+      ],
+      "notes": []
+    },
+    {
+      "name": "code-simplifier",
+      "path": "C:\\Users\\adria\\.agents\\skills\\code-simplifier",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "command-creator",
+      "path": "C:\\Users\\adria\\.agents\\skills\\command-creator",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "Reference files (patterns.md, examples.md, best-practices.md) document injection patterns for teaching purposes — not executing them. False positives from scanner."
+      ]
+    },
+    {
+      "name": "create-readme",
+      "path": "C:\\Users\\adria\\.agents\\skills\\create-readme",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "dbhub",
+      "path": "C:\\Users\\adria\\.agents\\skills\\dbhub",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "debug-mode",
+      "path": "C:\\Users\\adria\\.agents\\skills\\debug-mode",
+      "riskLevel": "Medium",
+      "findings": [
+        {
+          "id": "DEBUG-001",
+          "severity": "Medium",
+          "category": "Excessive Permissions",
+          "description": "No allowed-tools declared in frontmatter — effective permission set is unrestricted. Skill needs Read, Grep, Glob, Write, Edit for instrumentation workflow.",
+          "location": "SKILL.md frontmatter",
+          "confidence": "High",
+          "remediation": "Add allowed-tools: Read, Grep, Glob, Write, Edit"
+        }
+      ],
+      "notes": [
+        "Hardcoded project_root constant (no runtime path detection) is a deliberate security constraint, not a vulnerability.",
+        "Log writing constrained to {project_root}/.claude/debug.log — scoped to project, not agent config."
+      ]
+    },
+    {
+      "name": "delayed-command",
+      "path": "C:\\Users\\adria\\.agents\\skills\\delayed-command",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "docx",
+      "path": "C:\\Users\\adria\\.agents\\skills\\docx",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "8 Python scripts reviewed. All clean: defusedxml (secure XML), no eval/exec, no shell injection. Optional LibreOffice compilation step uses gcc C shim for sandbox compatibility."
+      ]
+    },
+    {
+      "name": "emil-design-eng",
+      "path": "C:\\Users\\adria\\.agents\\skills\\emil-design-eng",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "feature-dev",
+      "path": "C:\\Users\\adria\\.agents\\skills\\feature-dev",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "find-bugs",
+      "path": "C:\\Users\\adria\\.agents\\skills\\find-bugs",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "SQL injection/XSS references in checklist are detection targets, not payloads."
+      ]
+    },
+    {
+      "name": "find-skills",
+      "path": "C:\\Users\\adria\\.agents\\skills\\find-skills",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "skills.sh URLs flagged as untrusted by scanner — false positive, skills.sh is the official Astral skill registry."
+      ]
+    },
+    {
+      "name": "frontend-slides",
+      "path": "C:\\Users\\adria\\.agents\\skills\\frontend-slides",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "gh-cli",
+      "path": "C:\\Users\\adria\\.agents\\skills\\gh-cli",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "3 example.com URLs in documentation are inert placeholders in example commands, not live external links."
+      ]
+    },
+    {
+      "name": "git-commit",
+      "path": "C:\\Users\\adria\\.agents\\skills\\git-commit",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "grill-me",
+      "path": "C:\\Users\\adria\\.agents\\skills\\grill-me",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "improve-codebase-architecture",
+      "path": "C:\\Users\\adria\\.agents\\skills\\improve-codebase-architecture",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "init-rules",
+      "path": "C:\\Users\\adria\\.agents\\skills\\init-rules",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "Skill asks user to confirm before overwriting CLAUDE.md — good safety behavior."
+      ]
+    },
+    {
+      "name": "make-interfaces-feel-better",
+      "path": "C:\\Users\\adria\\.agents\\skills\\make-interfaces-feel-better",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "mcp2cli",
+      "path": "C:\\Users\\adria\\.agents\\skills\\mcp2cli",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "30 URLs flagged as untrusted by scanner — all are example.com/petstore3.swagger.io placeholder domains in documentation, not runtime dependencies."
+      ]
+    },
+    {
+      "name": "modern-python",
+      "path": "C:\\Users\\adria\\.agents\\skills\\modern-python",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "10 URLs flagged as untrusted by scanner — all are legitimate: IETF reserved example domains, astral.sh official installer, pre-commit.com resource. No actual untrusted sources."
+      ]
+    },
+    {
+      "name": "pdf",
+      "path": "C:\\Users\\adria\\.agents\\skills\\pdf",
+      "riskLevel": "Low",
+      "findings": [],
+      "notes": [
+        "8 Python scripts reviewed. All clean: pypdf, pdfplumber, reportlab, PIL. subprocess.run uses list form (no shell). Monkeypatches pypdf internals for bug compatibility — safe."
+      ]
+    },
+    {
+      "name": "security-review",
+      "path": "C:\\Users\\adria\\.agents\\skills\\security-review",
+      "riskLevel": "Low",
+      "findings": [
+        {
+          "id": "SKILL-SEC-001",
+          "severity": "High",
+          "category": "Secret Exposure",
+          "description": "Scanner flagged hardcoded 'password123' and 'sk-proj-xxxxx' — confirmed false positive, these are FAIL anti-pattern examples under a 'NEVER Do This' heading",
+          "location": "SKILL.md:28",
+          "confidence": "Low"
+        }
+      ],
+      "notes": [
+        "5 scanner-flagged URLs all trusted official documentation (OWASP, nextjs.org, supabase.com, portswigger.net)."
+      ]
+    },
+    {
+      "name": "skill-scanner",
+      "path": "C:\\Users\\adria\\.agents\\skills\\skill-scanner",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "36 automated findings (23 Critical, 12 High, 1 Medium) — ALL false positives. The skill's references and script necessarily discuss/detect the very threats it scans for.",
+        "Script patterns (netcat, eval, exec, shell=True, base64.b64decode) are part of the detection logic itself, not malicious usage.",
+        "evil.com URLs are fictional examples in threat documentation. No real malicious URLs present.",
+        "Tool permissions (Read, Grep, Glob, Bash) are minimal and justified for a static analysis tool."
+      ]
+    },
+    {
+      "name": "subagent-creator",
+      "path": "C:\\Users\\adria\\.agents\\skills\\subagent-creator",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "tdd",
+      "path": "C:\\Users\\adria\\.agents\\skills\\tdd",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": []
+    },
+    {
+      "name": "web-coder",
+      "path": "C:\\Users\\adria\\.agents\\skills\\web-coder",
+      "riskLevel": "Clean",
+      "findings": [],
+      "notes": [
+        "77 'untrusted' URLs flagged by scanner — all false positives. All are IETF reserved example domains (example.com, localhost) or well-known standards bodies (W3C, WHATWG, IETF, caniuse.com, OWASP).",
+        "Security content (XSS, CSRF, CSP) appears as defensive documentation, appropriate for web development competency guide."
+      ]
+    }
+  ],
+  "actionItems": [
+    {
+      "priority": 1,
+      "skill": "import-export-claude-global-profile",
+      "issue": "No safeguards before overwriting config files",
+      "fix": "Add timestamped backup + warning before import. Exclude settings.local.json from export."
+    },
+    {
+      "priority": 2,
+      "skill": "codebase-to-course",
+      "issue": "Missing allowed-tools + Unix /tmp/ path incompatible with Windows",
+      "fix": "Add allowed-tools declaration; use mktemp -d or $TEMP for cross-platform tmp"
+    },
+    {
+      "priority": 3,
+      "skill": "import-claude-global-profile (disabled)",
+      "issue": "Bash permission scope too broad (bash *)",
+      "fix": "Narrow to specific script path"
+    },
+    {
+      "priority": 4,
+      "skill": "toggle-bypassPermissions",
+      "issue": "Inherently high-privilege skill",
+      "fix": "Ensure disable-model-invocation: true is respected by harness"
+    },
+    {
+      "priority": 5,
+      "skill": "code-review-pro",
+      "issue": "Missing allowed-tools declaration",
+      "fix": "Add allowed-tools: Read, Grep, Glob, Write, Task"
+    },
+    {
+      "priority": 6,
+      "skill": "debug-mode",
+      "issue": "Missing allowed-tools — unrestricted tool access",
+      "fix": "Add allowed-tools: Read, Grep, Glob, Write, Edit"
+    },
+    {
+      "priority": 7,
+      "skill": "permissions-command (disabled)",
+      "issue": "Missing allowed-tools frontmatter",
+      "fix": "Add explicit allowed-tools field"
+    },
+    {
+      "priority": 8,
+      "skill": "weather, mcp-context7",
+      "issue": "Missing allowed-tools frontmatter",
+      "fix": "Add for least-privilege clarity"
+    }
+  ],
+  "safeToUseAsIs": [
+    "agents-run", "daily-ai", "create-AGENTS.md", "agents-md", "caveman", "caveman-compress",
+    "code-review", "code-simplifier", "create-readme", "dbhub", "feature-dev", "find-bugs",
+    "frontend-slides", "grill-me", "improve-codebase-architecture", "make-interfaces-feel-better",
+    "mcp2cli", "modern-python", "skill-scanner", "subagent-creator", "tdd", "web-coder",
+    "gh-cli", "init-rules", "docx", "autobrowse", "plain-english", "mcp-tavily-mcp"
+  ],
+  "disabledSkills": [
+    {
+      "name": "import-claude-global-profile",
+      "status": "disabled",
+      "riskLevel": "Medium",
+      "notes": "Bash scope too broad. Script itself has backup safeguard."
+    },
+    {
+      "name": "permissions-command",
+      "status": "disabled",
+      "riskLevel": "Low",
+      "notes": "Well-designed security model, low severity finding."
+    }
+  ]
+}
