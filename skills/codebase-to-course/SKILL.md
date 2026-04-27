@@ -20,7 +20,12 @@ When the skill is first triggered and the user hasn't specified a codebase yet, 
 >
 > I'll read through the code, figure out how everything fits together, and generate a beautiful single-page HTML course with animated diagrams, plain-English code explanations, and interactive quizzes. The whole thing runs in your browser — no setup needed.
 
-If the user provides a GitHub link, clone the repo first (`git clone <url> /tmp/<repo-name>`) before starting the analysis. If they say "this codebase" or similar, use the current working directory.
+If the user provides a GitHub link, clone the repo first:
+```bash
+REPO_DIR="$(mktemp -d)/$(basename "$url" .git)"
+git clone "$url" "$REPO_DIR"
+```
+This uses `mktemp -d` for a cross-platform temp directory — works on Linux, macOS, and Windows (Git Bash/MSYS2).
 
 ## Who This Is For
 

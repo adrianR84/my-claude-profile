@@ -92,12 +92,22 @@ User wants to back up their Claude Code settings.
 
 ### Steps
 1. **Run diff first** — Execute `diff.sh` and show the output to the user. This shows what would change.
-2. **Choose sync mode** — Ask the user to choose:
+2. **Scan for sensitive data** — Before any export to GitHub, run the scanner on `settings.json`:
+   ```
+   node ~/.claude/skills/import-export-claude-global-profile/scripts/scan-sensitive.js detect ~/.claude/settings.json
+   ```
+   - **If sensitive data is found (exit 1):** Show the warning to the user and ask if they want to:
+     - **Local-only export:** `bash .../export.sh merge --local-only` (skips GitHub push)
+     - **Exclude settings.json:** `bash .../export.sh merge --exclude settings.json` (still pushes to GitHub if configured)
+     - **Redact sensitive values:** `bash .../export.sh merge --redact-with "YOUR_PLACEHOLDER"` (replaces sensitive values with placeholder, then pushes to GitHub)
+     - **Abort:** Stop here, user will handle manually
+   - **If clean (exit 0):** Proceed to sync mode selection.
+3. **Choose sync mode** — Ask the user to choose:
    - **Merge sync (default):** Source items added/updated in backup. Items only in backup are preserved. Safer.
    - **Clean sync:** Backup made to exactly match source. Removes items not in source.
-3. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/export.sh [merge|clean]`
-4. **Parse output** — Extract synced items from script output (look for "Synced:" lines).
-5. **Display summary table** — See [Summary table](#summary-table) below.
+4. **Run:** `bash ~/.claude/skills/import-export-claude-global-profile/scripts/export.sh [merge|clean]`
+5. **Parse output** — Extract synced items from script output (look for "Synced:" lines).
+6. **Display summary table** — See [Summary table](#summary-table) below.
 
 ### What gets exported
 Defined by `folders`, `files`, and `plugin_files` in `config.yml`. Defaults:

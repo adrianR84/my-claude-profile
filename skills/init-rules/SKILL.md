@@ -3,7 +3,7 @@ name: init-rules
 description: >
   Initialize or update CLAUDE.md coding standards for any project by auto-detecting tech stack
   and assembling rules from the claude-rules template library.
-  Use when user says "init rules", "初始化规范", "生成 CLAUDE.md", or wants to set up coding standards.
+  Use when user says "init rules", or wants to set up coding standards.
 ---
 
 # Init Claude Rules
