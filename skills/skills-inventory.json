@@ -1,0 +1,483 @@
+{
+  "metadata": {
+    "generated": "2026-04-26",
+    "totalSkills": 47,
+    "source": "C:/Users/adria/.claude/skills/ and C:/Users/adria/.agents/skills/"
+  },
+  "skills": [
+    {
+      "id": 1,
+      "name": "code-review",
+      "category": "Code Quality",
+      "description": "Performs code reviews following Sentry engineering practices. Covers runtime errors, N+1 queries, security vulnerabilities, test coverage, and long-term impact assessment."
+    },
+    {
+      "id": 2,
+      "name": "code-review-pro",
+      "category": "Code Quality",
+      "description": "Deep parallel code analysis using distributed agents — each file reviewed independently, findings merged. Security, performance, code quality, best practices, bugs with severity ratings."
+    },
+    {
+      "id": 3,
+      "name": "find-bugs",
+      "category": "Code Quality",
+      "description": "Reviews uncommitted changes on current branch for bugs, security vulnerabilities, and code quality issues. Maps attack surface and runs full security checklist."
+    },
+    {
+      "id": 4,
+      "name": "security-review",
+      "category": "Code Quality",
+      "description": "Comprehensive security checklist: secrets management, input validation, SQL injection, auth/authz, XSS, CSRF, rate limiting, dependency security."
+    },
+    {
+      "id": 5,
+      "name": "code-simplifier",
+      "category": "Code Quality",
+      "description": "Simplifies and refines code for clarity, consistency, and maintainability. Preserves functionality, applies project-specific best practices."
+    },
+    {
+      "id": 6,
+      "name": "feature-dev",
+      "category": "Development",
+      "description": "Guided feature development with 8 phases: Discovery, Codebase Exploration, Clarifying Questions, Architecture Design, Implementation, Testing, Quality Review, Summary."
+    },
+    {
+      "id": 7,
+      "name": "tdd",
+      "category": "Development",
+      "description": "Test-driven development using red-green-refactor loop. Emphasizes integration-style tests through public interfaces using vertical slices."
+    },
+    {
+      "id": 8,
+      "name": "git-commit",
+      "category": "Development",
+      "description": "Executes git commit with conventional commit message analysis, intelligent staging, and message generation."
+    },
+    {
+      "id": 9,
+      "name": "command-creator",
+      "category": "Development",
+      "description": "Creates Claude Code slash commands (.claude/commands/) with proper structure and best practices."
+    },
+    {
+      "id": 10,
+      "name": "skill-scanner",
+      "category": "Development",
+      "description": "Scans agent skills for security issues: prompt injection, malicious code, excessive permissions, secret exposure."
+    },
+    {
+      "id": 11,
+      "name": "agents-run",
+      "category": "Orchestration",
+      "description": "Spawns parallel general-purpose subagents on complex requests, coordinates, assigns work packages, synthesizes results."
+    },
+    {
+      "id": 12,
+      "name": "subagent-creator",
+      "category": "Orchestration",
+      "description": "Creates specialized Claude Code sub-agents with custom system prompts and tool configurations."
+    },
+    {
+      "id": 13,
+      "name": "skill-creator",
+      "category": "Orchestration",
+      "description": "Creates, modifies, and evaluates skills with quantitative benchmarking and browser-based eval viewer."
+    },
+    {
+      "id": 14,
+      "name": "find-skills",
+      "category": "Orchestration",
+      "description": "Discovers and installs skills from the open ecosystem via agentskill.sh. Verifies install counts and source reputation."
+    },
+    {
+      "id": 15,
+      "name": "learn",
+      "category": "Orchestration",
+      "description": "Discovers, installs, and manages AI agent skills from agentskill.sh. Full CLI, security scanning, context-aware recommendations."
+    },
+    {
+      "id": 16,
+      "name": "init-rules",
+      "category": "Documentation",
+      "description": "Initializes CLAUDE.md coding standards by auto-detecting tech stack and assembling rules from template library."
+    },
+    {
+      "id": 17,
+      "name": "web-coder",
+      "category": "Web/Frontend",
+      "description": "Expert 10x web development across 15 domains: HTML, CSS, JS, Web APIs, HTTP, security, performance, accessibility."
+    },
+    {
+      "id": 18,
+      "name": "make-interfaces-feel-better",
+      "category": "Web/Frontend",
+      "description": "Design engineering principles for UI polish: concentric border radius, optical alignment, shadows, interruptible animations, stagger effects."
+    },
+    {
+      "id": 19,
+      "name": "emil-design-eng",
+      "category": "Web/Frontend",
+      "description": "Design engineering philosophy for animation decisions: spring animations, CSS transforms, clip-path patterns, gesture interactions."
+    },
+    {
+      "id": 20,
+      "name": "frontend-slides",
+      "category": "Web/Frontend",
+      "description": "Creates zero-dependency, animation-rich HTML presentations with PPTX conversion and keyboard/touch navigation."
+    },
+    {
+      "id": 21,
+      "name": "autobrowse",
+      "category": "Web/Frontend",
+      "description": "Self-improving browser automation via iterative evaluate-read-improve strategy. Trains skills for specific sites."
+    },
+    {
+      "id": 22,
+      "name": "agents-md",
+      "category": "Documentation",
+      "description": "Creates and maintains AGENTS.md agent-facing documentation. Target: under 60 lines, never 100."
+    },
+    {
+      "id": 23,
+      "name": "create-AGENTS.md",
+      "category": "Documentation",
+      "description": "Creates minimal AGENTS.md file with project sections alongside companion CLAUDE.md."
+    },
+    {
+      "id": 24,
+      "name": "create-readme",
+      "category": "Documentation",
+      "description": "Creates comprehensive README.md files inspired by Azure-Samples open source examples."
+    },
+    {
+      "id": 25,
+      "name": "obsidian-markdown",
+      "category": "Documentation",
+      "description": "Creates Obsidian Flavored Markdown with wikilinks, embeds, callouts, properties, tags, LaTeX math, Mermaid diagrams."
+    },
+    {
+      "id": 26,
+      "name": "pdf",
+      "category": "Data",
+      "description": "PDF operations: reading (pypdf, pdfplumber), creating (reportlab), merging, splitting, OCR, watermarking, password protection."
+    },
+    {
+      "id": 27,
+      "name": "docx",
+      "category": "Data",
+      "description": "Word document creation, reading, editing using docx npm library and Python scripts. Tables, images, tracked changes."
+    },
+    {
+      "id": 28,
+      "name": "dbhub",
+      "category": "Data",
+      "description": "Database exploration via DBHub MCP server with explore-first workflow (schema → tables → columns → indexes → query)."
+    },
+    {
+      "id": 29,
+      "name": "caveman",
+      "category": "Communication",
+      "description": "Ultra-compressed communication mode, reducing token usage ~75%. Drops articles, filler, pleasantries."
+    },
+    {
+      "id": 30,
+      "name": "caveman-compress",
+      "category": "Communication",
+      "description": "Compresses memory files (CLAUDE.md, todos) into caveman format to save tokens."
+    },
+    {
+      "id": 31,
+      "name": "plain-english",
+      "category": "Communication",
+      "description": "Explains complex topics in simple terms at 3 levels: Simple (default), Age 10, Age 15."
+    },
+    {
+      "id": 32,
+      "name": "grill-me",
+      "category": "Communication",
+      "description": "Interviews user relentlessly about every aspect of a plan until reaching shared understanding."
+    },
+    {
+      "id": 33,
+      "name": "modern-python",
+      "category": "Language",
+      "description": "Configures Python projects with modern tooling: uv, ruff, ty. Anti-patterns to avoid and migration guides."
+    },
+    {
+      "id": 34,
+      "name": "gh-cli",
+      "category": "GitHub",
+      "description": "Comprehensive GitHub CLI reference covering repos, issues, PRs, Actions, projects, releases, gists, codespaces."
+    },
+    {
+      "id": 35,
+      "name": "mcp2cli",
+      "category": "API",
+      "description": "Turns MCP servers, OpenAPI specs, GraphQL endpoints into CLIs at runtime without codegen."
+    },
+    {
+      "id": 36,
+      "name": "mcp-context7",
+      "category": "API",
+      "description": "Fetches current library/framework documentation via Context7 MCP server."
+    },
+    {
+      "id": 37,
+      "name": "mcp-tavily-mcp",
+      "category": "API",
+      "description": "Web search, content extraction, and research via Tavily MCP."
+    },
+    {
+      "id": 38,
+      "name": "mcp-notion",
+      "category": "API",
+      "description": "Full Notion integration: search, fetch, create/update pages and databases, comments."
+    },
+    {
+      "id": 39,
+      "name": "debug-mode",
+      "category": "Debugging",
+      "description": "Hypothesis-driven interactive debugging with phases: Understand → Hypotheses → Instrument → Analyze → Fix → Verify."
+    },
+    {
+      "id": 40,
+      "name": "weather",
+      "category": "Utilities",
+      "description": "Weather forecasts via Open-Meteo API. Hourly (12h) and daily (15d) forecasts."
+    },
+    {
+      "id": 41,
+      "name": "daily-ai",
+      "category": "Utilities",
+      "description": "Daily AI industry digest from 6 podcasts, 25 X builders, 2 blogs. GitHub Actions with ETag caching."
+    },
+    {
+      "id": 42,
+      "name": "delayed-command",
+      "category": "Utilities",
+      "description": "Waits specified duration, then executes bash command. Format: 30s, 5m, 1h, 1h30m."
+    },
+    {
+      "id": 43,
+      "name": "toggle-bypassPermissions",
+      "category": "Utilities",
+      "description": "Toggles bypassPermissions in project settings.local.json."
+    },
+    {
+      "id": 44,
+      "name": "import-export-claude-global-profile",
+      "category": "Utilities",
+      "description": "Exports, imports, compares Claude Code global settings with backup folder or GitHub repo."
+    },
+    {
+      "id": 45,
+      "name": "improve-codebase-architecture",
+      "category": "Architecture",
+      "description": "Explores codebase for architectural improvement, focusing on testability. Creates GitHub issue RFC."
+    },
+    {
+      "id": 46,
+      "name": "codebase-to-course",
+      "category": "Education",
+      "description": "Transforms codebase into interactive HTML course with scroll navigation, visualizations, quizzes."
+    },
+    {
+      "id": 47,
+      "name": "prompt-master",
+      "category": "Prompting",
+      "description": "Generates optimized prompts for any AI tool (Claude, GPT, o3, Gemini, Midjourney, etc.). Avoids fabricated techniques."
+    }
+  ],
+  "recommendations": {
+    "newEmptyProject": [
+      {"phase": 1, "skill": "init-rules", "purpose": "Initialize coding standards based on tech stack"},
+      {"phase": 2, "skill": "modern-python", "purpose": "Set up Python project with uv, ruff, ty"},
+      {"phase": 3, "skill": "create-AGENTS.md", "purpose": "Bootstrap AGENTS.md and CLAUDE.md"},
+      {"phase": 4, "skill": "feature-dev", "purpose": "Systematic feature development"},
+      {"phase": 5, "skill": "tdd", "purpose": "Test-driven development"},
+      {"phase": 6, "skill": "code-simplifier", "purpose": "Clean up and simplify code"},
+      {"phase": 7, "skill": "code-review-pro", "purpose": "Deep code analysis"},
+      {"phase": 8, "skill": "security-review", "purpose": "Security checklist"},
+      {"phase": 9, "skill": "git-commit", "purpose": "Create conventional commit"},
+      {"phase": 10, "skill": "create-readme", "purpose": "Project documentation"}
+    ],
+    "existingProject": [
+      {"phase": 1, "skill": "find-skills", "purpose": "Find relevant skills for the task"},
+      {"phase": 2, "skill": "mcp-context7", "purpose": "Get current library/framework docs"},
+      {"phase": 3, "skill": "feature-dev", "purpose": "Systematic feature implementation"},
+      {"phase": 4, "skill": "tdd", "purpose": "Test-driven development"},
+      {"phase": 5, "skill": "debug-mode", "purpose": "If issues arise during development"},
+      {"phase": 6, "skill": "code-simplifier", "purpose": "Simplify code before review"},
+      {"phase": 7, "skill": "code-review", "purpose": "Code review"},
+      {"phase": 8, "skill": "find-bugs", "purpose": "Check for bugs before commit"},
+      {"phase": 9, "skill": "security-review", "purpose": "Security checklist"},
+      {"phase": 10, "skill": "git-commit", "purpose": "Create commit"}
+    ]
+  },
+  "workflows": {
+    "newEmptyProject": [
+      {
+        "phase": 1,
+        "skill": "init-rules",
+        "invocation": "/init-rules",
+        "prompt": "Initialize my coding standards for a new Python project",
+        "example": "/init-rules",
+        "when": "Starting a new project - auto-detects tech stack and creates CLAUDE.md with appropriate rules"
+      },
+      {
+        "phase": 2,
+        "skill": "modern-python",
+        "invocation": "/modern-python",
+        "prompt": "Set up a modern Python project structure with uv, ruff, and ty",
+        "example": "/modern-python",
+        "when": "After init-rules - configures pyproject.toml, pre-commit, security tooling"
+      },
+      {
+        "phase": 3,
+        "skill": "create-AGENTS.md",
+        "invocation": "/create-AGENTS.md",
+        "prompt": "Create AGENTS.md and CLAUDE.md files for my new project",
+        "example": "/create-AGENTS.md",
+        "when": "After modern-python - bootstraps agent-facing documentation"
+      },
+      {
+        "phase": 4,
+        "skill": "feature-dev",
+        "invocation": "/feature-dev",
+        "prompt": "I need to build a user authentication system with JWT tokens and password hashing",
+        "example": "/feature-dev then describe: Build a REST API for user registration and login with JWT auth",
+        "when": "Ready to implement first feature - guided 8-phase development"
+      },
+      {
+        "phase": 5,
+        "skill": "tdd",
+        "invocation": "/tdd",
+        "prompt": "Write tests first for the user registration endpoint",
+        "example": "/tdd — red-green-refactor the login flow",
+        "when": "During feature-dev implementation - write tests before code"
+      },
+      {
+        "phase": 6,
+        "skill": "code-simplifier",
+        "invocation": "/simplify",
+        "prompt": "Simplify the authentication module I just wrote",
+        "example": "/simplify",
+        "when": "After feature implementation - clean up before review"
+      },
+      {
+        "phase": 7,
+        "skill": "code-review-pro",
+        "invocation": "/code-review-pro",
+        "prompt": "Review my auth module thoroughly for security and performance issues",
+        "example": "/code-review-pro",
+        "when": "Before committing - deep parallel analysis"
+      },
+      {
+        "phase": 8,
+        "skill": "security-review",
+        "invocation": "/security-review",
+        "prompt": "Run a security checklist on the authentication implementation",
+        "example": "/security-review",
+        "when": "Before deployment - full security audit"
+      },
+      {
+        "phase": 9,
+        "skill": "git-commit",
+        "invocation": "/commit",
+        "prompt": "Commit my authentication feature",
+        "example": "/commit",
+        "when": "After all reviews pass - conventional commit message"
+      },
+      {
+        "phase": 10,
+        "skill": "create-readme",
+        "invocation": "/create-readme",
+        "prompt": "Create a README.md for my new project",
+        "example": "/create-readme",
+        "when": "Project ready for sharing - comprehensive documentation"
+      }
+    ],
+    "existingProject": [
+      {
+        "phase": 1,
+        "skill": "find-skills",
+        "invocation": "/learn",
+        "prompt": "Find skills for building a GraphQL API",
+        "example": "/learn find skills for graphql api development",
+        "when": "Starting new work - discover available skills"
+      },
+      {
+        "phase": 2,
+        "skill": "mcp-context7",
+        "invocation": "MCP tool: resolve-library-id + query-docs",
+        "prompt": "Get the latest documentation for FastAPI and Pydantic v2",
+        "example": "resolve-library-id: fastapi, then query-docs: validation patterns",
+        "when": "Before implementation - ensure using current best practices"
+      },
+      {
+        "phase": 3,
+        "skill": "feature-dev",
+        "invocation": "/feature-dev",
+        "prompt": "Add a file upload endpoint to the existing API",
+        "example": "/feature-dev then describe: Add async file upload with S3 storage",
+        "when": "Ready to implement - systematic feature development"
+      },
+      {
+        "phase": 4,
+        "skill": "tdd",
+        "invocation": "/tdd",
+        "prompt": "TDD approach for the file upload feature",
+        "example": "/tdd — test the upload endpoint with various file types",
+        "when": "During feature-dev - write tests first"
+      },
+      {
+        "phase": 5,
+        "skill": "debug-mode",
+        "invocation": "/debug-mode",
+        "prompt": "Debug why the upload fails for files larger than 5MB",
+        "example": "/debug-mode",
+        "when": "Tests fail or bugs appear - structured hypothesis debugging"
+      },
+      {
+        "phase": 6,
+        "skill": "code-simplifier",
+        "invocation": "/simplify",
+        "prompt": "Simplify the file processing code",
+        "example": "/simplify",
+        "when": "After fixing bugs - clean up before review"
+      },
+      {
+        "phase": 7,
+        "skill": "code-review",
+        "invocation": "/code-review",
+        "prompt": "Review my file upload changes",
+        "example": "/code-review",
+        "when": "Before commit - structured checklist review"
+      },
+      {
+        "phase": 8,
+        "skill": "find-bugs",
+        "invocation": "/find-bugs",
+        "prompt": "Check for bugs in my uncommitted changes",
+        "example": "/find-bugs",
+        "when": "Before commit - security and bug scan"
+      },
+      {
+        "phase": 9,
+        "skill": "security-review",
+        "invocation": "/security-review",
+        "prompt": "Security checklist for file upload feature",
+        "example": "/security-review",
+        "when": "Before merge - especially important for file handling"
+      },
+      {
+        "phase": 10,
+        "skill": "git-commit",
+        "invocation": "/commit",
+        "prompt": "Commit the file upload feature",
+        "example": "/commit",
+        "when": "All checks pass - conventional commit"
+      }
+    ]
+  }
+}

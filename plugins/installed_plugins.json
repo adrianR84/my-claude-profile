@@ -214,6 +214,16 @@
         "lastUpdated": "2026-04-25T17:42:31.970Z",
         "gitCommitSha": "fa1e131a014576ff8f8919f191a7ca8d8fded39b"
       }
+    ],
+    "agent-session-resume@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/agent-session-resume/0.1.1",
+        "version": "0.1.1",
+        "installedAt": "2026-04-27T06:10:15.984Z",
+        "lastUpdated": "2026-04-27T06:10:15.984Z",
+        "gitCommitSha": "075f89920cf70706d29106673d29950610fd13d3"
+      }
     ]
   }
 }

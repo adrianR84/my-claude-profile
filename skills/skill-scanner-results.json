@@ -217,25 +217,6 @@
       "notes": []
     },
     {
-      "name": "import-claude-global-profile",
-      "path": "C:\\Users\\adria\\.claude\\skills\\disabled\\import-claude-global-profile",
-      "riskLevel": "Medium",
-      "findings": [
-        {
-          "id": "IMPORT-GLOBAL-001",
-          "severity": "Medium",
-          "category": "Excessive Permissions",
-          "description": "Bash scope listed as bash * in frontmatter but SKILL.md body restricts to one specific script. Overly broad if harness enforces full scope.",
-          "location": "SKILL.md:4",
-          "confidence": "Medium",
-          "remediation": "Narrow Bash scope to specific script path"
-        }
-      ],
-      "notes": [
-        "Script has backup-before-overwrite safeguard. Symlink risk: cp -r dereferences symlinks as regular files — safe."
-      ]
-    },
-    {
       "name": "permissions-command",
       "path": "C:\\Users\\adria\\.claude\\skills\\disabled\\permissions-command",
       "riskLevel": "Low",
@@ -303,18 +284,11 @@
           "location": "SKILL.md frontmatter",
           "confidence": "High",
           "remediation": "Add allowed-tools: Read, Grep, Glob, Bash, Write"
-        },
-        {
-          "id": "CBCOURSE-002",
-          "severity": "Low",
-          "category": "Validation / Cross-Platform",
-          "description": "Git clone instruction uses Unix /tmp/ path incompatible with Windows host",
-          "location": "SKILL.md:23",
-          "confidence": "High",
-          "remediation": "Use mktemp -d or $TEMP/$TMPDIR env vars for cross-platform compatibility"
         }
       ],
-      "notes": []
+      "notes": [
+        "Fixed: Git clone now uses mktemp -d for cross-platform temp directory instead of hardcoded /tmp/"
+      ]
     },
     {
       "name": "code-review",
@@ -593,41 +567,35 @@
     {
       "priority": 2,
       "skill": "codebase-to-course",
-      "issue": "Missing allowed-tools + Unix /tmp/ path incompatible with Windows",
-      "fix": "Add allowed-tools declaration; use mktemp -d or $TEMP for cross-platform tmp"
+      "issue": "Missing allowed-tools declaration",
+      "fix": "Add allowed-tools: Read, Grep, Glob, Bash, Write"
     },
     {
       "priority": 3,
-      "skill": "import-claude-global-profile (disabled)",
-      "issue": "Bash permission scope too broad (bash *)",
-      "fix": "Narrow to specific script path"
-    },
-    {
-      "priority": 4,
       "skill": "toggle-bypassPermissions",
       "issue": "Inherently high-privilege skill",
       "fix": "Ensure disable-model-invocation: true is respected by harness"
     },
     {
-      "priority": 5,
+      "priority": 4,
       "skill": "code-review-pro",
       "issue": "Missing allowed-tools declaration",
       "fix": "Add allowed-tools: Read, Grep, Glob, Write, Task"
     },
     {
-      "priority": 6,
+      "priority": 5,
       "skill": "debug-mode",
       "issue": "Missing allowed-tools — unrestricted tool access",
       "fix": "Add allowed-tools: Read, Grep, Glob, Write, Edit"
     },
     {
-      "priority": 7,
+      "priority": 6,
       "skill": "permissions-command (disabled)",
       "issue": "Missing allowed-tools frontmatter",
       "fix": "Add explicit allowed-tools field"
     },
     {
-      "priority": 8,
+      "priority": 7,
       "skill": "weather, mcp-context7",
       "issue": "Missing allowed-tools frontmatter",
       "fix": "Add for least-privilege clarity"
@@ -641,12 +609,6 @@
     "gh-cli", "init-rules", "docx", "autobrowse", "plain-english", "mcp-tavily-mcp"
   ],
   "disabledSkills": [
-    {
-      "name": "import-claude-global-profile",
-      "status": "disabled",
-      "riskLevel": "Medium",
-      "notes": "Bash scope too broad. Script itself has backup safeguard."
-    },
     {
       "name": "permissions-command",
       "status": "disabled",

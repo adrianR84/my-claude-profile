@@ -9,7 +9,8 @@
     "CLAUDE_CODE_EFFORT_LEVEL": "max",
     "alwaysThinkingEnabled": "true",
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet",
-    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_FORK_SUBAGENT": "0"
   },
   "permissions": {
     "allow": [
@@ -193,7 +194,8 @@
     "micro-skill-pipeline@claude-code-awesome": true,
     "llm-wiki-compiler@claude-code-awesome": true,
     "tdd-guard@claude-code-awesome": true,
-    "obsidian@claude-code-awesome": true
+    "obsidian@claude-code-awesome": true,
+    "agent-session-resume@claude-code-awesome": true
   },
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
