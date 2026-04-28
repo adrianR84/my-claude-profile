@@ -74,10 +74,10 @@
     "protective-hooks@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/protective-hooks/573e1d18e41c",
-        "version": "573e1d18e41c",
+        "installPath": "plugins/cache/claude-code-awesome/protective-hooks/1.0.2",
+        "version": "1.0.2",
         "installedAt": "2026-03-30T13:54:12.725Z",
-        "lastUpdated": "2026-04-12T09:11:10.864Z",
+        "lastUpdated": "2026-04-28T18:35:51.804Z",
         "gitCommitSha": "67fa9e922d718c54c7cf28c34e2cd87a948cb2b5"
       }
     ],
@@ -130,10 +130,10 @@
     "rss-aggregator@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/rss-aggregator/1.1.1",
-        "version": "1.1.1",
+        "installPath": "plugins/cache/claude-code-awesome/rss-aggregator/1.0.4",
+        "version": "1.0.4",
         "installedAt": "2026-04-12T19:50:15.496Z",
-        "lastUpdated": "2026-04-12T19:50:15.496Z",
+        "lastUpdated": "2026-04-28T18:35:51.956Z",
         "gitCommitSha": "cd935e3dd726373df72cefa07c6e6bb0d6beed45"
       }
     ],
@@ -223,6 +223,16 @@
         "installedAt": "2026-04-27T06:10:15.984Z",
         "lastUpdated": "2026-04-27T06:10:15.984Z",
         "gitCommitSha": "075f89920cf70706d29106673d29950610fd13d3"
+      }
+    ],
+    "all-permissions@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/all-permissions/1.0.2",
+        "version": "1.0.2",
+        "installedAt": "2026-04-28T18:36:08.954Z",
+        "lastUpdated": "2026-04-28T18:36:08.954Z",
+        "gitCommitSha": "f3b582471ea7687cabdad44a9287dc567c8d8450"
       }
     ]
   }
