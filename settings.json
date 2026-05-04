@@ -1,32 +1,58 @@
 {
   "env": {
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
-    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_NO_FLICKER": "1",
+    "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
     "MAX_THINKING_TOKENS": "91999",
     "CLAUDE_CODE_EFFORT_LEVEL": "max",
-    "alwaysThinkingEnabled": "true",
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65",
+    "ENABLE_TOOL_SEARCH": "true",
+    "DISABLE_AUTOUPDATER": "1",
     "CLAUDE_CODE_FORK_SUBAGENT": "0"
   },
   "permissions": {
     "allow": [],
+    "deny": [
+      "Read(**/.env*)",
+      "Read(**/.dev.vars*)",
+      "Read(**/*.pem)",
+      "Read(**/*.key)",
+      "Read(**/secrets/**)",
+      "Read(**/credentials/**)",
+      "Read(**/.aws/**)",
+      "Read(**/.ssh/**)",
+      "Read(**/config/database.yml)",
+      "Read(**/config/credentials.json)",
+      "Read(**/.npmrc)",
+      "Read(**/.pypirc)",
+      "Write(**/.env*)",
+      "Write(**/secrets/**)",
+      "Write(**/.ssh/**)",
+      "Write(.github/workflows/*)",
+      "Bash(sudo *)",
+      "Bash(npm publish *)",
+      "Bash(curl * | sh)"
+    ],
     "ask": [
       "Bash(git -C push *)",
       "Bash(git push *)",
       "Bash(rm *)",
-      "Bash(rm -rf *)"
+      "Bash(rm -rf *)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(chmod *)"
     ],
     "defaultMode": "acceptEdits"
   },
-  "hooks": {},
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",
-    "padding": 0
+    "padding": 0,
+    "refreshInterval": 30
   },
   "enabledPlugins": {
     "superpowers@claude-plugins-official": false,
@@ -51,12 +77,13 @@
     "tdd-guard@claude-code-awesome": false,
     "obsidian@claude-code-awesome": true,
     "agent-session-resume@claude-code-awesome": false,
-    "all-permissions@claude-code-awesome": true
+    "all-permissions@claude-code-awesome": true,
+    "last30days@claude-code-awesome": true
   },
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",
   "autoMemoryEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "ENABLE_TOOL_SEARCH": "true",
+  "autoCompactEnabled": true,
   "mcpServers": {}
 }

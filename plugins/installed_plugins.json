@@ -228,11 +228,21 @@
     "all-permissions@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/all-permissions/1.0.2",
-        "version": "1.0.2",
+        "installPath": "plugins/cache/claude-code-awesome/all-permissions/1.0.3",
+        "version": "1.0.3",
         "installedAt": "2026-04-28T18:36:08.954Z",
-        "lastUpdated": "2026-04-28T18:36:08.954Z",
+        "lastUpdated": "2026-04-30T12:55:39.708Z",
         "gitCommitSha": "f3b582471ea7687cabdad44a9287dc567c8d8450"
+      }
+    ],
+    "last30days@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/last30days/3.1.1",
+        "version": "3.1.1",
+        "installedAt": "2026-04-30T12:55:59.475Z",
+        "lastUpdated": "2026-04-30T12:55:59.475Z",
+        "gitCommitSha": "5b87cca886c98d47b0dcbf00a7363320d935c82e"
       }
     ]
   }
