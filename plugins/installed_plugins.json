@@ -168,10 +168,10 @@
     "minimal-claude@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/minimal-claude/1.6.1",
-        "version": "1.6.1",
+        "installPath": "plugins/cache/claude-code-awesome/minimal-claude/1.7.0",
+        "version": "1.7.0",
         "installedAt": "2026-04-16T19:25:55.992Z",
-        "lastUpdated": "2026-04-16T19:25:55.992Z",
+        "lastUpdated": "2026-06-04T20:20:21.916Z",
         "gitCommitSha": "b764eae40531e82d2e28ffc452a308dfa7db4cb5"
       }
     ],
@@ -188,21 +188,21 @@
     "llm-wiki-compiler@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/llm-wiki-compiler/2.0.0",
-        "version": "2.0.0",
+        "installPath": "plugins/cache/claude-code-awesome/llm-wiki-compiler/2.1.0",
+        "version": "2.1.0",
         "installedAt": "2026-04-20T20:57:15.554Z",
-        "lastUpdated": "2026-04-20T20:57:15.554Z",
-        "gitCommitSha": "718f5d5dbd4862d693f5936e5e8577ddccc3cca3"
+        "lastUpdated": "2026-05-08T11:17:54.932Z",
+        "gitCommitSha": "0f734fd3fba7dbc6a3b58efb4fb5fbaf7ce7565d"
       }
     ],
     "tdd-guard@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/tdd-guard/1.2.0",
-        "version": "1.2.0",
+        "installPath": "plugins/cache/claude-code-awesome/tdd-guard/1.3.0",
+        "version": "1.3.0",
         "installedAt": "2026-04-21T12:47:50.525Z",
-        "lastUpdated": "2026-04-21T12:47:50.525Z",
-        "gitCommitSha": "457c1f9a377ba64d41893c8393bc7e7f70e67312"
+        "lastUpdated": "2026-05-08T11:17:55.264Z",
+        "gitCommitSha": "d0868c39b1ff390cbd4f91899af38c082ec5ef88"
       }
     ],
     "obsidian@claude-code-awesome": [
@@ -218,10 +218,10 @@
     "agent-session-resume@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/agent-session-resume/0.1.1",
-        "version": "0.1.1",
+        "installPath": "plugins/cache/claude-code-awesome/agent-session-resume/1.0.0",
+        "version": "1.0.0",
         "installedAt": "2026-04-27T06:10:15.984Z",
-        "lastUpdated": "2026-04-27T06:10:15.984Z",
+        "lastUpdated": "2026-06-04T20:20:23.232Z",
         "gitCommitSha": "075f89920cf70706d29106673d29950610fd13d3"
       }
     ],
@@ -238,11 +238,30 @@
     "last30days@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/last30days/3.1.1",
-        "version": "3.1.1",
+        "installPath": "plugins/cache/claude-code-awesome/last30days/3.3.1",
+        "version": "3.3.1",
         "installedAt": "2026-04-30T12:55:59.475Z",
-        "lastUpdated": "2026-04-30T12:55:59.475Z",
+        "lastUpdated": "2026-06-04T20:20:24.835Z",
         "gitCommitSha": "5b87cca886c98d47b0dcbf00a7363320d935c82e"
+      }
+    ],
+    "claude-code-clock@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/claude-code-clock/1.0.1",
+        "version": "1.0.1",
+        "installedAt": "2026-06-04T22:37:28.490Z",
+        "lastUpdated": "2026-06-04T22:37:28.490Z",
+        "gitCommitSha": "b29f9596986ae0cabb514807850cedff8f38860d"
+      }
+    ],
+    "context7@claude-plugins-official": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-plugins-official/context7/unknown",
+        "version": "unknown",
+        "installedAt": "2026-06-09T15:54:00.108Z",
+        "lastUpdated": "2026-06-09T15:54:00.108Z"
       }
     ]
   }

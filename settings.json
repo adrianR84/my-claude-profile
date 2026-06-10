@@ -1,21 +1,35 @@
 {
+  "respectGitignore": true,
+  "cleanupPeriodDays": 99999,
   "env": {
+    "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY_HERE",
+    "API_TIMEOUT_MS": "3000000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "ANTHROPIC_MODEL": "MiniMax-M2.7",
+    "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M3",
+    "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.7",
+    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.7",
     "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
-    "MAX_THINKING_TOKENS": "91999",
+    "MAX_THINKING_TOKENS": "21999",
     "CLAUDE_CODE_EFFORT_LEVEL": "max",
     "CLAUDE_CODE_SUBAGENT_MODEL": "sonnet",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
-    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65",
     "ENABLE_TOOL_SEARCH": "true",
     "DISABLE_AUTOUPDATER": "1",
     "CLAUDE_CODE_FORK_SUBAGENT": "0"
   },
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
-    "allow": [],
+    "allow": [
+      "mcp__pencil"
+    ],
     "deny": [
       "Read(**/.env*)",
       "Read(**/.dev.vars*)",
@@ -46,8 +60,9 @@
       "Bash(wget *)",
       "Bash(chmod *)"
     ],
-    "defaultMode": "acceptEdits"
+    "defaultMode": "auto"
   },
+  "model": "opus",
   "statusLine": {
     "type": "command",
     "command": "npx -y ccstatusline@latest",
@@ -78,7 +93,9 @@
     "obsidian@claude-code-awesome": true,
     "agent-session-resume@claude-code-awesome": false,
     "all-permissions@claude-code-awesome": true,
-    "last30days@claude-code-awesome": true
+    "last30days@claude-code-awesome": true,
+    "claude-code-clock@claude-code-awesome": true,
+    "context7@claude-plugins-official": true
   },
   "effortLevel": "xhigh",
   "autoUpdatesChannel": "latest",

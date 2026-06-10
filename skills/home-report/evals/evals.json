@@ -1,0 +1,23 @@
+{
+  "skill_name": "home-report",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Analyze the home report PDF at https://www.dropbox.com/scl/fi/vfuln20w9vjx2m56mt9wv/Dykehead-Shotts.pdf?rlkey=0r9xo5qtsf1dmjetjqk2ld50i&st=moi0m9ts&dl=1",
+      "expected_output": "Full structured home report with: property summary (address, type, size, bedrooms, bathrooms, built, council tax, EPC rating, valuation, heating, electricity, gas, strong points, weak points), condition assessment (all categories 1-3), energy performance (EPC ratings, recommended improvements with costs), location research (supermarkets, schools, commuting, crime, lifestyle), legal notes, mortgage valuation, and buyer notes. All Category 2 and 3 issues should be highlighted with estimated repair costs.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Analyze the home report PDF at https://www.dropbox.com/scl/fi/vfuln20w9vjx2m56mt9wv/Dykehead-Shotts.pdf?rlkey=0r9xo5qtsf1dmjetjqk2ld50i&st=moi0m9ts&dl=1 and save it as HTML",
+      "expected_output": "A full home report analysis displayed in conversation AND an HTML file saved at ./home-reports/Dykehead-Shotts/Dykehead-Shotts.html with professional styling including all sections (property summary, valuation, construction, condition, energy, location research, legal, mortgage, buyer notes). Category 2/3 issues highlighted with costs.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I just received a home report for a property I'm thinking of buying. Can you analyze it and tell me if there are any red flags? Here's the PDF: /test-homes/glasgow-flat.pdf",
+      "expected_output": "Full home report analysis with property summary (EPC, valuation, heating, electricity, gas, strong/weak points), condition assessment highlighting any Category 2 or 3 issues, energy performance, location research, and buyer warnings. Should flag any urgent repair needs and estimated costs.",
+      "files": []
+    }
+  ]
+}

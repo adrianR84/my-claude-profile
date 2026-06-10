@@ -2,10 +2,10 @@
 
 ## Shell / Cross-Platform Compatibility
 
-- **Cross-platform first**: Always consider Windows (Git Bash/MSYS2), Linux, macOS. POSIX-compliant patterns. No OS-specific commands or paths.
+- **Cross-platform first**: Windows (Git Bash/MSYS2), Linux, macOS. POSIX-compliant patterns. No OS-specific commands or paths.
 - **Bash 3.2 maximum**: Shell scripts must work with bash 3.2 (default on macOS). Bash 4.0+ features NOT allowed in shared scripts.
-- **Prefer Node.js over shell scripts**: When a task can use Node.js or shell script, choose Node.js. Native cross-platform, faster repeated invocations, standard APIs (`fetch`, `fs`, `path`) handle OS paths correctly. Shell scripts only when Node.js unavailable or impractical.
-- **Built-in tools first**: Use Claude Code built-in tools (Read, Edit, Glob, Grep, Bash) before reaching for external commands or scripts. Keeps things lightweight and avoids process spawn overhead.
+- **Prefer Node.js over shell scripts**: Node.js when task can use Node.js or shell script. Native cross-platform, faster repeated invocations, standard APIs (`fetch`, `fs`, `path`) handle OS paths correctly. Shell scripts only when Node.js unavailable or impractical.
+- **Built-in tools first**: Use Claude Code built-in tools (Read, Edit, Glob, Grep, Bash) before external commands or scripts. Lightweight, avoids process spawn overhead.
 
 ## Package Management
 
@@ -13,7 +13,9 @@ Node.js: `pnpm` (not `npm`/`yarn`). Python: `uv` (not `pip`/`conda`/`poetry`).
 
 ## Obsidian Vault
 
-Vault path: `C:\Users\adria\.obsidian\AI-Research`
+All vaults are located at `C:\Users\adria\.obsidian`. If no vault is specified, default to **Learn**.
+
+Other vaults may exist — ask if you need to use a different one.
 
 ## Language
 
@@ -21,11 +23,11 @@ Write ALL instructions, settings, skills, code comments, documentation in **Engl
 
 ## Coding Guidelines
 
-1. **Before writing any code**, describe your approach and wait for approval. Always ask clarifying questions before writing any code if requirements are ambiguous.
-2. **If a task requires changes to more than 3 files**, stop and break it into smaller tasks first.
+1. **Before writing any code**, describe approach and wait for approval. Ask clarifying questions before writing any code if requirements ambiguous.
+2. **If task requires changes to more than 3 files**, stop and break into smaller tasks first.
 3. **After writing code**, list what could break and suggest tests to cover it.
-4. **When there's a bug**, start by writing a test that reproduces it, then fix it until the test passes.
-5. **Every time I correct you**, add a new rule to the CLAUDE.md file so it never happens again.
+4. **When there's a bug**, write test that reproduces it, then fix until test passes.
+5. **Every time I correct you**, add new rule to CLAUDE.md so it never happens again.
 
 # Agent Guidelines
 
@@ -45,7 +47,7 @@ Before implementing:
 
 ## 2. Simplicity First
 
-Minimum code solving the problem. Nothing speculative.
+Minimum code solving problem. Nothing speculative.
 
 - No features beyond what was asked.
 - No abstractions for single-use code.
@@ -57,7 +59,7 @@ Ask: "Senior engineer call this overcomplicated?" If yes, rewrite.
 
 ## 3. Surgical Changes
 
-Touch only what you must. Clean up only your own mess.
+Touch only what must be touched. Clean up only own mess.
 
 When editing:
 - Don't "improve" adjacent code, comments, formatting.
@@ -91,14 +93,32 @@ Strong criteria → independent loops. Weak criteria ("make it work") → consta
 
 ## 5. Execution Discipline
 
-- **Read before editing**: Read the full file before editing. Plan all changes, then make ONE complete edit. If you've edited a file 3+ times, stop and re-read the user's requirements.
-- **Follow through**: Re-read the user's last message before responding. Complete every instruction fully.
-- **Stay on track**: Every few turns, re-read the original request to ensure you haven't drifted from the goal.
-- **Ask when stuck**: When stuck, summarize what you've tried and ask the user for guidance instead of retrying the same approach.
-- **Accept corrections**: When the user corrects you, stop and re-read their message. Quote back what they asked for and confirm before proceeding.
-- **Fail fast**: After 2 consecutive tool failures, stop and change your approach entirely. Explain what failed and try a different strategy.
-- **Verify output**: Double-check your output before presenting it. Verify that your changes actually address what the user asked for.
+- **Read before editing**: Read full file before editing. Plan all changes, then make ONE complete edit. If you've edited file 3+ times, stop and re-read requirements.
+- **Follow through**: Re-read user's last message before responding. Complete every instruction fully.
+- **Stay on track**: Every few turns, re-read original request to ensure no drift from goal.
+- **Ask when stuck**: When stuck, summarize what you've tried and ask user for guidance instead of retrying same approach.
+- **Accept corrections**: When user corrects you, stop and re-read their message. Quote back what they asked for and confirm before proceeding.
+- **Fail fast**: After 2 consecutive tool failures, stop and change approach entirely. Explain what failed and try different strategy.
+- **Verify output**: Double-check output before presenting. Verify changes actually address what user asked for.
 - **Work autonomously**: Make reasonable decisions without asking for confirmation on every step.
+
+## 6. Minimize Permission Prompts
+
+Avoid tools that require user confirmation. User's permissions config defines:
+
+**Ask (prompts for permission — avoid if possible):**
+- Bash: `git push *`, `rm *`, `rm -rf *`, `curl *`, `wget *`, `chmod *`
+
+**Best practices:**
+- Prefer built-in tools (Read, Edit, Glob, Grep) — these never prompt
+- Avoid `ask` list patterns above
+- Batch edits into fewer calls rather than many small ones
+
+If tool keeps triggering prompt, flag so user can add allowlist rule.
+
+## Web Fetching
+
+When fetching web content, prefer WebFetch. If WebFetch fails (e.g., 402, 403, or empty response), fall back to `defuddle parse <url> --md` — it strips ads/navigation and produces clean markdown at lower token cost.
 
 ---
 
