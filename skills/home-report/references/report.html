@@ -139,6 +139,34 @@
     .location-card h4 { margin: 0 0 8px 0; color: var(--primary); font-size: 0.9rem; border-bottom: 1px solid var(--border); padding-bottom: 6px; }
     .location-card p { margin: 6px 0; font-size: 0.88rem; }
     .location-card .detail { color: #555; }
+    .sold-property-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .sold-property-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      border-bottom: 1px solid var(--border);
+    }
+    .sold-property-card .card-body { padding: 12px 14px; }
+    .sold-property-card .card-address { margin: 0 0 6px 0; font-size: 0.9rem; font-weight: 600; }
+    .sold-property-card .card-address a { color: var(--primary); text-decoration: none; }
+    .sold-property-card .card-address a:hover { text-decoration: underline; }
+    .sold-property-card .card-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+    .sold-property-card .card-tag {
+      display: inline-block;
+      padding: 2px 8px;
+      background: #e2e8f0;
+      border-radius: 10px;
+      font-size: 0.75rem;
+      color: #475569;
+    }
+    .sold-property-card .card-price { font-size: 1.05rem; font-weight: 700; color: var(--good); margin: 4px 0; }
+    .sold-property-card .card-date { font-size: 0.8rem; color: #666; margin: 2px 0; }
+    .sold-property-card .card-history { font-size: 0.78rem; color: #666; margin: 4px 0 0 0; padding-top: 6px; border-top: 1px solid var(--border); }
     @media (max-width: 600px) {
       body { padding: 14px; }
       .summary-grid { grid-template-columns: 1fr; }
@@ -150,6 +178,37 @@
       body { max-width: 100%; padding: 0; }
       .no-print { display: none; }
     }
+    .nav-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 16px;
+      background: #eef2f7;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      margin-bottom: 24px;
+    }
+    .nav-bar a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 4px 0;
+    }
+    .nav-bar a:hover { text-decoration: underline; }
+    .section-header { display: flex; justify-content: space-between; align-items: center; }
+    .section-header h2 { margin: 32px 0 14px 0; }
+    .back-to-top {
+      font-size: 0.78rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: normal;
+      white-space: nowrap;
+      display: block;
+      text-align: right;
+      margin-top: 12px;
+    }
+    .back-to-top:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -160,6 +219,14 @@
   <div class="property-address">[PROPERTY ADDRESS]</div>
   <div class="report-date">[DATE OF REPORT]</div>
 </div>
+
+<!-- NAVIGATION BAR -->
+<nav class="nav-bar" id="nav-bar">
+  <a href="#room-dimensions">Room Dimensions</a>
+  <a href="#condition-assessment">Condition Assessment</a>
+  <a href="#location-research">Location Research</a>
+  <a href="#sold-properties">Sold Properties</a>
+</nav>
 
 <!-- PROPERTY IMAGE -->
 <div id="property-image" class="property-image" style="display:none; margin-bottom:20px;">
@@ -202,20 +269,22 @@
   <ul>
     [LIST OF WEAK POINTS — ONE &lt;li&gt; PER ITEM]
   </ul>
-</div>
-
-<!-- FLOORPLAN -->
-<div id="floorplan-image" class="floorplan-image" style="display:none; margin-bottom:20px;">
-  <img src="[FLOORPLAN IMAGE URL]" alt="Floorplan" style="width:100%; border-radius:6px; border:1px solid var(--border);">
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- ROOM DIMENSIONS -->
 <div class="section" id="room-dimensions" style="display:none;">
-  <h2>📐 Room Dimensions</h2>
+  <div class="section-header">
+    <h2>📐 Room Dimensions</h2>
+  </div>
+  <div id="floorplan-image" class="floorplan-image" style="display:none; margin-bottom:16px;">
+    <img src="[FLOORPLAN IMAGE URL]" alt="Floorplan" style="width:100%; border-radius:6px; border:1px solid var(--border);">
+  </div>
   <table id="dimensions-table">
     <tr><th>Room</th><th>Dimensions</th></tr>
     [ROWS — ONE PER ROOM: room name | original size (e.g. 12ft x 10ft) | converted to m²]
   </table>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- VALUATION -->
@@ -230,12 +299,15 @@
 </div>
 
 <!-- CONDITION ASSESSMENT -->
-<div class="section">
-  <h2>🔧 Condition Assessment</h2>
+<div class="section" id="condition-assessment">
+  <div class="section-header">
+    <h2>🔧 Condition Assessment</h2>
+  </div>
   <table>
     <tr><th>Element</th><th class="col-rating">Rating</th><th>Notes</th></tr>
     [ROWS — ONE PER ELEMENT]
   </table>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- REPAIRS NEEDED (if any Category 2/3) -->
@@ -256,6 +328,7 @@
   <div class="repair-total" style="margin-top:16px; padding:12px 16px; background:#f0f0f0; border-radius:6px; font-weight:600; font-size:1.05rem;">
     Total Estimated Cost: £[MIN–MAX] (mid-point: £[MID-POINT])
   </div>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- ENERGY PERFORMANCE -->
@@ -277,11 +350,40 @@
 </div>
 
 <!-- LOCATION RESEARCH -->
-<div class="section">
-  <h2>📍 Location Research</h2>
+<div class="section" id="location-research">
+  <div class="section-header">
+    <h2>📍 Location Research</h2>
+  </div>
   <div class="location-grid">
     [ONE .location-card PER TOPIC: supermarkets, schools, commuting, crime, lifestyle, health]
   </div>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
+</div>
+
+<!-- SOLD PROPERTIES (Rightmove) -->
+<div class="section" id="sold-properties" style="display:none;">
+  <div class="section-header">
+    <h2>🏷️ Sold Properties (Rightmove)</h2>
+  </div>
+  <p style="font-size:0.85rem;color:#666;margin-bottom:12px;">Properties sold at the same postcode within the last 3 years — sorted by most recent sale. <a href="[RIGHTMOVE HOUSE PRICES URL]" target="_blank" rel="noopener">View all sold properties on Rightmove →</a></p>
+  <div id="sold-properties-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;">
+    <!-- ONE .sold-property-card PER RECORD:
+    <div class="sold-property-card">
+      <img src="[IMAGE URL]" alt="[ADDRESS]">
+      <div class="card-body">
+        <h4 class="card-address"><a href="[RIGHTMOVE PROPERTY LINK]" target="_blank" rel="noopener">[FULL ADDRESS]</a></h4>
+        <div class="card-price">£[SOLD PRICE]</div>
+        <div class="card-meta">
+          <span class="card-tag">[PROPERTY TYPE]</span>
+          <span class="card-tag">[BEDROOMS] bed</span>
+        </div>
+        <div class="card-date">Sold: [DATE]</div>
+        <div class="card-history">[SALE HISTORY if available]</div>
+      </div>
+    </div>
+    -->
+  </div>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- LEGAL & CONVEYANCER -->
@@ -299,6 +401,7 @@
     <tr><th>Item</th><th>Detail</th></tr>
     [ROWS]
   </table>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- WHAT COULD BREAK -->
@@ -313,6 +416,7 @@
 <div class="section">
   <h2>📊 Market Context</h2>
   <p>[MARKET COMMENTARY]</p>
+  <a href="#nav-bar" class="back-to-top">↑ Back to top</a>
 </div>
 
 <!-- RED FLAG SECTIONS (shown only in red flag mode) -->

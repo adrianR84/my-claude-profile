@@ -3,7 +3,7 @@
   "cleanupPeriodDays": 99999,
   "env": {
     "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
-    "ANTHROPIC_AUTH_TOKEN": "YOUR_API_KEY_HERE",
+    "ANTHROPIC_AUTH_TOKEN": "YOUR_PLACEHOLDER",
     "API_TIMEOUT_MS": "3000000",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
     "ANTHROPIC_MODEL": "MiniMax-M2.7",
@@ -56,7 +56,6 @@
       "Bash(git push *)",
       "Bash(rm *)",
       "Bash(rm -rf *)",
-      "Bash(curl *)",
       "Bash(wget *)",
       "Bash(chmod *)"
     ],
@@ -97,10 +96,22 @@
     "claude-code-clock@claude-code-awesome": true,
     "context7@claude-plugins-official": true
   },
-  "effortLevel": "xhigh",
+  "effortLevel": "low",
   "autoUpdatesChannel": "latest",
   "autoMemoryEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "autoCompactEnabled": true,
-  "mcpServers": {}
+  "mcpServers": {},
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"C:/Users/adria/.claude/hooks/mmx-quota-block.js\""
+          }
+        ]
+      }
+    ]
+  }
 }

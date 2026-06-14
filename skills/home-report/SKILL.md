@@ -23,9 +23,13 @@ This skill processes a residential property survey PDF (Scottish Home Report for
 
 Both modes use the same steps for data gathering (PDF reading, location research, cost estimates). Only the output formatting differs. **HTML export is available for both modes** — Step 8 generates the appropriate HTML variant based on which mode was used.
 
-**Regenerating a report:** If the user asks to regenerate, re-export, or re-display a report (phrases: "regenerate", "show the report again", "html version", "export to html", "save as html", "make html report", "update html", "display the report", "show the report"), read from the existing `report.md` file first — do not re-process the PDF from scratch. Only re-run from Step 1 if the user explicitly says "start from zero", "re-analyze", "process the PDF again", or similar. This applies to both terminal and HTML output.
+**Regenerating a report:** If the user asks to regenerate, re-export, or re-display a report (phrases: "regenerate", "show the report again", "html version", "export to html", "save as html", "make html report", "update html", "display the report", "show the report"), read from the existing `report.md` file first — do not re-process the PDF from scratch. Also read `property-link.txt` from the same folder to restore any external listing URL provided with the original request — reuse it to fetch room dimensions, property image, floorplan, and sold properties. Only re-run from Step 1 if the user explicitly says "start from zero", "re-analyze", "process the PDF again", or similar. This applies to both terminal and HTML output.
 
-**External link (Zoopla / Rightmove):** If the user provides a Zoopla or Rightmove URL alongside the PDF, fetch the page and use it to complement the home report data. Prioritise home report data over external link data — if they conflict, keep the home report value and note the discrepancy. Pull room dimensions from the listing if available; if room dimensions are found (from either source), add a **Room Dimensions** section to the report. Also extract: (1) the property's main listing image URL, (2) the floorplan image URL. For the floorplan URL, strip the `_max_296x197` suffix before the file extension (e.g. `_max_296x197.jpeg` → `.jpeg`). Pass both image URLs to the HTML template.
+**External link (Zoopla / Rightmove):** If the user provides a Zoopla or Rightmove URL alongside the PDF, fetch the page and use it to complement the home report data. Prioritise home report data over external link data — if they conflict, keep the home report value and note the discrepancy. Pull room dimensions from the listing if available; if room dimensions are found (from either source), add a **Room Dimensions** section to the report. Also extract: (1) the property's main listing image URL, (2) the floorplan image URL. For the floorplan URL, strip the `_max_296x197` suffix before the file extension (e.g. `_max_296x197.jpeg` → `.jpeg`). Pass both image URLs to the HTML template. **Save this URL to `./home-reports/<pdf-name>/property-link.txt`** so it can be reused when regenerating the report.
+
+**Floorplan image analysis:** If a floorplan image URL is available (from the external listing), use `mcp__MiniMax__understand_image` to analyze it. Prompt: "Analyze this floorplan and extract all room names with their dimensions (width x length in metres or feet). List each room separately. If total floor area is known, cross-check that room sizes sum reasonably." Use the extracted room data to supplement or validate the Room Dimensions section. If the floorplan reveals rooms not listed in the PDF, add them and note the source.
+
+**Rightmove Sold Properties:** After extracting the postcode from the PDF, construct a Rightmove URL using the postcode (with space, lowercase). For example, if the postcode is "KY6 3DH", use `https://www.rightmove.co.uk/house-prices/ky6-3dh.html`. Fetch this page and extract all sold property records — address, sale price, sale date, property type, bedrooms, listing link, and image. Filter to last 3 years only. Sort by most recent sale first. Each address must be a clickable link to its Rightmove listing (opens in new tab). Save this data in report.md and include it in the HTML report.
 
 ### Step 1: Acquire the PDF
 
@@ -185,6 +189,29 @@ Also note how these compare to the local/regional average — e.g., "crime rate 
 
 **Town/area extraction:** Parse the address from the PDF to identify the town. Use the postcode suffix (e.g., "ML7" in "ML7 4DF") to identify the region — UK postcodes encode location. Search the town name + postcode area for best results (e.g., "Shotts ML7" or "Wishaw ML2"). For Scottish properties, also check the council area (North Lanarkshire, South Lanarkshire, etc.) as this affects school ratings and crime statistics.
 
+### Step 5b: Rightmove Sold Properties
+
+**Fetch sold property data from Rightmove:**
+1. Extract the postcode from the PDF (e.g., "KY6 3DH")
+2. Convert to the Rightmove URL format: `https://www.rightmove.co.uk/house-prices/ky6-3dh.html` (postcode with space, lowercase)
+3. Fetch the page using `WebFetch`
+4. Parse the sold property records — for each entry extract:
+   - Full address
+   - Sold price
+   - Date sold
+   - History of sale (price changes if available)
+   - Property type (terrace, flat, semi-detached, detached)
+   - Number of bedrooms
+   - Link to the property listing
+   - Image thumbnail URL
+5. Filter to only properties sold in the last 3 years (36 months)
+6. Sort by most recent sale first
+7. Format each address as a link to its Rightmove listing page (opens in new tab)
+8. If the Rightmove page fetch fails or returns no data, note "Sold property data unavailable" in the report
+9. **Fallback — expand radius:** If no properties are found for the postcode (0 results in last 3 years), re-fetch the same URL with `?radius=0.25` appended (e.g. `https://www.rightmove.co.uk/house-prices/ky6-3dh.html?radius=0.25`). Parse and display these results the same way. If still no results, note "No sold properties found for this postcode in the last 3 years (even with expanded radius)."
+
+**Include in report.md:** A "🏷️ Sold Properties" section with a table listing all records — address (as Rightmove link), sale price, sale date, property type, bedrooms — sorted newest first.
+
 ### Step 6: Handle Category 2/3 Issues
 
 **First:** Read `references/repair-costs.md` and load the cost table into context — this is the safety net if subagents return no data.
@@ -319,6 +346,13 @@ Return: cost range (min–max), typical mid-point, key factors that affect price
 
 ---
 
+### 🏷️ SOLD PROPERTIES (Rightmove)
+[View all sold properties on Rightmove →](https://www.rightmove.co.uk/house-prices/[POSTCODE].html) — link opens in new tab
+
+[Sold properties at the same postcode — each address is a Rightmove link (opens in new tab), sale price, sale date, property type, bedrooms — sorted newest first, last 3 years only]
+
+---
+
 ### ⚖️ LEGAL & CONVEYANCER MATTERS
 [Legal notes, solicitor checks, title matters]
 
@@ -397,6 +431,7 @@ Recommendation: [What to do]
 - `pdf-mcp` — For reading PDF content (via ToolSearch for pdf_info, pdf_read_all, pdf_search)
 - `WebSearch` (built-in) — **Primary** tool for location research; use first
 - `mcp__MiniMax__web_search` — **Fallback** only if WebSearch is unavailable or fails
+- `mcp__MiniMax__understand_image` — For analyzing floorplan images to extract room dimensions
 - `curl` — For downloading PDFs from URLs (fallback if WebFetch fails)
 - Node.js or Python — For HTML generation
 
@@ -406,7 +441,9 @@ Recommendation: [What to do]
 home-reports/
 └── <pdf-name-without-extension>/
     ├── <original-filename>.pdf  (the downloaded/input PDF)
-    └── <pdf-name>.html         (HTML report)
+    ├── <pdf-name>.html         (HTML report)
+    ├── report.md               (saved report markdown)
+    └── property-link.txt       (saved external listing URL — Zoopla/Rightmove)
 ```
 
 All generated reports are displayed in the conversation AND saved to disk.
