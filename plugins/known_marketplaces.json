@@ -5,7 +5,7 @@
       "repo": "anthropics/claude-plugins-official"
     },
     "installLocation": "plugins/marketplaces/claude-plugins-official",
-    "lastUpdated": "2026-04-20T16:32:38.689Z"
+    "lastUpdated": "2026-07-08T20:21:20.946Z"
   },
   "claude-code-awesome": {
     "source": {
@@ -13,7 +13,7 @@
       "url": "https://github.com/adrianR84/claude-code-marketplace.git"
     },
     "installLocation": "plugins/marketplaces/claude-code-awesome",
-    "lastUpdated": "2026-06-04T22:13:30.900Z"
+    "lastUpdated": "2026-07-08T20:41:21.035Z"
   },
   "agent-toolkit": {
     "source": {

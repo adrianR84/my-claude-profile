@@ -1,0 +1,72 @@
+{
+  "url_patterns": [
+    {"name": "React",            "pattern": "react[@.-](?:production\\.min\\.js|dom[@.-])|/react@([\\d.]+)|/react-dom@([\\d.]+)", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Vue",              "pattern": "vue(?:\\.global|\\.runtime|@([\\d.]+))", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Angular",          "pattern": "angular[@.-]([\\d.]+)", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Svelte",           "pattern": "svelte@([\\d.]+)", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Alpine.js",        "pattern": "alpinejs@([\\d.]+)|alpine\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "jQuery",           "pattern": "jquery[@.-]([\\d.]+)(?:\\.min)?\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Lodash",           "pattern": "lodash@([\\d.]+)|lodash\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Three.js",         "pattern": "three(?:\\.min)?\\.js|three@([\\d.]+)|three\\.module", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "GSAP",             "pattern": "gsap@([\\d.]+)|gsap\\.min\\.js|TweenMax\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Anime.js",         "pattern": "anime(?:\\.min)?\\.js|anime@([\\d.]+)", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Lottie",           "pattern": "lottie-web@([\\d.]+)|lottie\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "D3",               "pattern": "d3@([\\d.]+)|d3\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Chart.js",         "pattern": "chart(?:\\.umd)?\\.js|chart\\.js@([\\d.]+)", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Swiper",           "pattern": "swiper@([\\d.]+)|swiper\\.bundle\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "AOS",              "pattern": "aos@([\\d.]+)|aos\\.min\\.js", "scan_in": ["scripts"], "kind": "js"},
+    {"name": "Tailwind CSS",     "pattern": "tailwindcss@([\\d.]+)|tailwindcss@([\\d.]+)|tailwind\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "Bootstrap",        "pattern": "bootstrap@([\\d.]+)|bootstrap\\.min\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "Bulma",            "pattern": "bulma@([\\d.]+)|bulma\\.min\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "Foundation",       "pattern": "foundation@([\\d.]+)|foundation\\.min\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "Materialize",      "pattern": "materialize@([\\d.]+)|materialize\\.min\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "Pico CSS",         "pattern": "@picocss/pico@([\\d.]+)|pico\\.min\\.css", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "DaisyUI",          "pattern": "daisyui@([\\d.]+)", "scan_in": ["stylesheets"], "kind": "css"},
+    {"name": "FontAwesome",      "pattern": "fontawesome@([\\d.]+)|fontawesome\\.min\\.(?:css|js)", "scan_in": ["stylesheets", "scripts"], "kind": "icon"},
+    {"name": "Material Icons",   "pattern": "material[\\-+]?icons|MaterialIcons", "scan_in": ["stylesheets", "scripts"], "kind": "icon"},
+    {"name": "Lucide",           "pattern": "lucide@([\\d.]+)|lucide\\.min\\.js", "scan_in": ["scripts"], "kind": "icon"},
+    {"name": "Heroicons",        "pattern": "heroicons@([\\d.]+)|heroicons\\.min\\.js", "scan_in": ["scripts"], "kind": "icon"},
+    {"name": "Google Fonts",     "pattern": "fonts\\.googleapis\\.com", "scan_in": ["stylesheets"], "kind": "font"},
+    {"name": "Adobe Fonts",      "pattern": "use\\.typekit\\.net|typekit\\.com", "scan_in": ["stylesheets", "scripts"], "kind": "font"},
+    {"name": "Bunny Fonts",      "pattern": "fonts\\.bunny\\.net", "scan_in": ["stylesheets"], "kind": "font"},
+    {"name": "Fontshare",        "pattern": "api\\.fontshare\\.com", "scan_in": ["stylesheets"], "kind": "font"},
+    {"name": "Next.js",          "pattern": "/_next/static/", "scan_in": ["scripts", "stylesheets"], "kind": "framework"},
+    {"name": "Nuxt",             "pattern": "/_nuxt/", "scan_in": ["scripts", "stylesheets"], "kind": "framework"},
+    {"name": "Gatsby",           "pattern": "/commons\\.js|app-[a-f0-9]+\\.js", "scan_in": ["scripts"], "kind": "framework"},
+    {"name": "Astro",            "pattern": "/_astro/|astro@([\\d.]+)", "scan_in": ["scripts", "stylesheets"], "kind": "framework"},
+    {"name": "Vite",             "pattern": "/vite/@|vite\\.js|vite@([\\d.]+)", "scan_in": ["scripts"], "kind": "build"},
+    {"name": "Webpack",          "pattern": "/webpack/|webpack@([\\d.]+)", "scan_in": ["scripts"], "kind": "build"},
+    {"name": "Cloudflare CDN",   "pattern": "cdn\\.cloudflare\\.com", "scan_in": ["scripts", "stylesheets"], "kind": "cdn"},
+    {"name": "jsDelivr",         "pattern": "cdn\\.jsdelivr\\.net", "scan_in": ["scripts", "stylesheets"], "kind": "cdn"},
+    {"name": "unpkg",            "pattern": "unpkg\\.com", "scan_in": ["scripts", "stylesheets"], "kind": "cdn"},
+    {"name": "cdnjs",            "pattern": "cdnjs\\.cloudflare\\.com", "scan_in": ["scripts", "stylesheets"], "kind": "cdn"},
+    {"name": "esm.sh",           "pattern": "esm\\.sh", "scan_in": ["scripts"], "kind": "cdn"}
+  ],
+  "class_frameworks": [
+    {
+      "name": "Tailwind CSS",
+      "classes": ["flex", "grid", "w-", "h-", "text-", "bg-", "p-", "m-", "rounded-", "shadow-", "space-y-", "space-x-", "font-", "border-", "absolute", "relative", "fixed", "sticky", "hidden", "block", "inline-block", "inset-", "top-", "left-", "right-", "bottom-", "z-", "opacity-", "hover:", "focus:", "active:", "group-hover:"],
+      "min_hits": 8
+    },
+    {
+      "name": "Bootstrap",
+      "classes": ["btn", "btn-primary", "btn-secondary", "container", "container-fluid", "row", "col-", "col-sm-", "col-md-", "col-lg-", "d-flex", "d-grid", "navbar", "navbar-expand", "card", "modal", "table", "table-striped", "form-control", "input-group", "dropdown"],
+      "min_hits": 5
+    },
+    {
+      "name": "Foundation",
+      "classes": ["row", "columns", "callout", "cell", "grid-x", "grid-container", "foundation-icon", "menu", "accordion"],
+      "min_hits": 5
+    },
+    {
+      "name": "Materialize",
+      "classes": ["waves-effect", "card", "card-panel", "modal", "navbar", "col", "row", "btn", "btn-large", "parallax-container", "slider"],
+      "min_hits": 5
+    },
+    {
+      "name": "Bulma",
+      "classes": ["button", "is-primary", "is-info", "is-success", "column", "columns", "hero", "navbar", "box", "notification", "tags", "tag"],
+      "min_hits": 5
+    }
+  ]
+}

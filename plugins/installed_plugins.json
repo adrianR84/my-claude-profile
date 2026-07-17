@@ -4,10 +4,10 @@
     "superpowers@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-plugins-official/superpowers/5.0.7",
-        "version": "5.0.7",
+        "installPath": "plugins/cache/claude-plugins-official/superpowers/6.1.1",
+        "version": "6.1.1",
         "installedAt": "2026-03-23T19:32:17.101Z",
-        "lastUpdated": "2026-04-11T23:34:39.086Z",
+        "lastUpdated": "2026-07-08T20:21:23.445Z",
         "gitCommitSha": "8ea39819eed74fe2a0338e71789f06b30e953041"
       }
     ],
@@ -17,7 +17,7 @@
         "installPath": "plugins/cache/claude-plugins-official/frontend-design/unknown",
         "version": "unknown",
         "installedAt": "2026-03-23T20:32:14.469Z",
-        "lastUpdated": "2026-03-26T22:11:11.332Z",
+        "lastUpdated": "2026-07-08T20:21:21.109Z",
         "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
       }
     ],
@@ -27,7 +27,7 @@
         "installPath": "plugins/cache/claude-plugins-official/feature-dev/unknown",
         "version": "unknown",
         "installedAt": "2026-03-23T20:46:18.812Z",
-        "lastUpdated": "2026-03-26T22:11:11.340Z",
+        "lastUpdated": "2026-07-08T20:21:24.663Z",
         "gitCommitSha": "90accf6fd2008fe0ee9578ebc088740c3a754d58"
       }
     ],
@@ -54,10 +54,10 @@
     "chrome-devtools-mcp@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-plugins-official/chrome-devtools-mcp/latest",
-        "version": "latest",
+        "installPath": "plugins/cache/claude-plugins-official/chrome-devtools-mcp/1.5.0",
+        "version": "1.5.0",
         "installedAt": "2026-03-26T11:53:57.826Z",
-        "lastUpdated": "2026-03-26T11:53:57.826Z",
+        "lastUpdated": "2026-07-08T20:21:24.192Z",
         "gitCommitSha": "c2d8009ff75f76bce1ec4cf79c2467b50d81725e"
       }
     ],
@@ -87,16 +87,16 @@
         "installPath": "plugins/cache/claude-plugins-official/hookify/unknown",
         "version": "unknown",
         "installedAt": "2026-03-30T16:47:20.393Z",
-        "lastUpdated": "2026-03-30T16:47:20.393Z"
+        "lastUpdated": "2026-07-08T20:21:21.200Z"
       }
     ],
     "security-guidance@claude-plugins-official": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-plugins-official/security-guidance/unknown",
-        "version": "unknown",
+        "installPath": "plugins/cache/claude-plugins-official/security-guidance/2.0.6",
+        "version": "2.0.6",
         "installedAt": "2026-03-30T17:00:05.748Z",
-        "lastUpdated": "2026-03-30T17:00:05.748Z"
+        "lastUpdated": "2026-07-08T20:21:21.153Z"
       }
     ],
     "playground@claude-plugins-official": [
@@ -105,7 +105,7 @@
         "installPath": "plugins/cache/claude-plugins-official/playground/unknown",
         "version": "unknown",
         "installedAt": "2026-03-30T18:00:29.670Z",
-        "lastUpdated": "2026-03-30T18:00:29.670Z"
+        "lastUpdated": "2026-07-08T20:21:21.139Z"
       }
     ],
     "claude-code-setup@claude-plugins-official": [
@@ -123,7 +123,7 @@
         "installPath": "plugins/cache/claude-plugins-official/plugin-dev/unknown",
         "version": "unknown",
         "installedAt": "2026-04-10T17:12:26.863Z",
-        "lastUpdated": "2026-04-11T23:34:35.810Z",
+        "lastUpdated": "2026-07-08T20:21:24.675Z",
         "gitCommitSha": "104d39be10b7b1380b2ae23a387a11a297b599c3"
       }
     ],
@@ -153,7 +153,7 @@
         "installPath": "plugins/cache/claude-plugins-official/skill-creator/unknown",
         "version": "unknown",
         "installedAt": "2026-04-13T11:08:23.892Z",
-        "lastUpdated": "2026-04-13T11:08:23.892Z"
+        "lastUpdated": "2026-07-08T20:21:24.650Z"
       }
     ],
     "code-review@claude-plugins-official": [
@@ -162,7 +162,7 @@
         "installPath": "plugins/cache/claude-plugins-official/code-review/unknown",
         "version": "unknown",
         "installedAt": "2026-04-12T16:29:09.316Z",
-        "lastUpdated": "2026-04-12T16:29:09.316Z"
+        "lastUpdated": "2026-07-08T20:21:21.125Z"
       }
     ],
     "minimal-claude@claude-code-awesome": [
@@ -215,16 +215,6 @@
         "gitCommitSha": "fa1e131a014576ff8f8919f191a7ca8d8fded39b"
       }
     ],
-    "agent-session-resume@claude-code-awesome": [
-      {
-        "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/agent-session-resume/1.0.0",
-        "version": "1.0.0",
-        "installedAt": "2026-04-27T06:10:15.984Z",
-        "lastUpdated": "2026-06-04T20:20:23.232Z",
-        "gitCommitSha": "075f89920cf70706d29106673d29950610fd13d3"
-      }
-    ],
     "all-permissions@claude-code-awesome": [
       {
         "scope": "user",
@@ -238,20 +228,20 @@
     "last30days@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/last30days/3.3.1",
-        "version": "3.3.1",
+        "installPath": "plugins/cache/claude-code-awesome/last30days/3.11.1",
+        "version": "3.11.1",
         "installedAt": "2026-04-30T12:55:59.475Z",
-        "lastUpdated": "2026-06-04T20:20:24.835Z",
+        "lastUpdated": "2026-07-08T20:21:57.051Z",
         "gitCommitSha": "5b87cca886c98d47b0dcbf00a7363320d935c82e"
       }
     ],
     "claude-code-clock@claude-code-awesome": [
       {
         "scope": "user",
-        "installPath": "plugins/cache/claude-code-awesome/claude-code-clock/1.0.1",
-        "version": "1.0.1",
+        "installPath": "plugins/cache/claude-code-awesome/claude-code-clock/1.0.2",
+        "version": "1.0.2",
         "installedAt": "2026-06-04T22:37:28.490Z",
-        "lastUpdated": "2026-06-04T22:37:28.490Z",
+        "lastUpdated": "2026-06-24T12:00:53.121Z",
         "gitCommitSha": "b29f9596986ae0cabb514807850cedff8f38860d"
       }
     ],
@@ -261,7 +251,27 @@
         "installPath": "plugins/cache/claude-plugins-official/context7/unknown",
         "version": "unknown",
         "installedAt": "2026-06-09T15:54:00.108Z",
-        "lastUpdated": "2026-06-09T15:54:00.108Z"
+        "lastUpdated": "2026-07-08T20:21:24.688Z"
+      }
+    ],
+    "pixelbrowse@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/pixelbrowse/0.1.0",
+        "version": "0.1.0",
+        "installedAt": "2026-06-24T12:01:05.789Z",
+        "lastUpdated": "2026-06-24T12:01:05.789Z",
+        "gitCommitSha": "13d53c12500d14929ccfeabd5241aa4e0cb15ff3"
+      }
+    ],
+    "ponytail@claude-code-awesome": [
+      {
+        "scope": "user",
+        "installPath": "plugins/cache/claude-code-awesome/ponytail/4.8.4",
+        "version": "4.8.4",
+        "installedAt": "2026-06-26T11:35:13.543Z",
+        "lastUpdated": "2026-07-08T20:21:55.338Z",
+        "gitCommitSha": "c4d1925ae9b76a1b641877328209ad25cfeb5ef2"
       }
     ]
   }

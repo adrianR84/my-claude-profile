@@ -7,6 +7,10 @@
 - **Prefer Node.js over shell scripts**: Node.js when task can use Node.js or shell script. Native cross-platform, faster repeated invocations, standard APIs (`fetch`, `fs`, `path`) handle OS paths correctly. Shell scripts only when Node.js unavailable or impractical.
 - **Built-in tools first**: Use Claude Code built-in tools (Read, Edit, Glob, Grep, Bash) before external commands or scripts. Lightweight, avoids process spawn overhead.
 
+## Plans
+
+Write plans to `<project>/.claude/PLANS/<slug>.md` — descriptive, kebab-case names (e.g. `add-proxy-provider.md`, `cache-redesign.md`). Path is relative to the current project root.
+
 ## Package Management
 
 Node.js: `pnpm` (not `npm`/`yarn`). Python: `uv` (not `pip`/`conda`/`poetry`).
@@ -104,17 +108,12 @@ Strong criteria → independent loops. Weak criteria ("make it work") → consta
 
 ## 6. Minimize Permission Prompts
 
-Avoid tools that require user confirmation. User's permissions config defines:
+Prefer built-in tools (Read, Edit, Glob, Grep) — no process spawn overhead.
+Batch edits into fewer calls rather than many small ones.
 
-**Ask (prompts for permission — avoid if possible):**
-- Bash: `git push *`, `rm *`, `rm -rf *`, `curl *`, `wget *`, `chmod *`
+## Git
 
-**Best practices:**
-- Prefer built-in tools (Read, Edit, Glob, Grep) — these never prompt
-- Avoid `ask` list patterns above
-- Batch edits into fewer calls rather than many small ones
-
-If tool keeps triggering prompt, flag so user can add allowlist rule.
+**Git commits and pushes: only when the user explicitly requests them.** Do not commit or push unprompted — the user manages the git lifecycle.
 
 ## Web Fetching
 

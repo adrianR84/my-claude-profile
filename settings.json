@@ -2,15 +2,9 @@
   "respectGitignore": true,
   "cleanupPeriodDays": 99999,
   "env": {
-    "ANTHROPIC_BASE_URL": "https://api.minimax.io/anthropic",
-    "ANTHROPIC_AUTH_TOKEN": "YOUR_PLACEHOLDER",
     "API_TIMEOUT_MS": "3000000",
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
-    "ANTHROPIC_MODEL": "MiniMax-M2.7",
-    "ANTHROPIC_DEFAULT_OPUS_MODEL": "MiniMax-M3",
-    "ANTHROPIC_DEFAULT_SONNET_MODEL": "MiniMax-M2.7",
-    "ANTHROPIC_DEFAULT_HAIKU_MODEL": "MiniMax-M2.7",
-    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "1",
+    "CLAUDE_CODE_DISABLE_1M_CONTEXT": "0",
     "CLAUDE_CODE_DISABLE_AUTO_MEMORY": "0",
     "CLAUDE_CODE_NO_FLICKER": "1",
     "CLAUDE_CODE_DISABLE_ADAPTIVE_THINKING": "1",
@@ -20,18 +14,16 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "ENABLE_TOOL_SEARCH": "true",
     "DISABLE_AUTOUPDATER": "1",
-    "CLAUDE_CODE_FORK_SUBAGENT": "0"
+    "CLAUDE_CODE_FORK_SUBAGENT": "0",
+    "CLAUDE_AUTOCOMPACT_PCT_OVERRIDE": "65"
   },
   "attribution": {
     "commit": "",
     "pr": ""
   },
   "permissions": {
-    "allow": [
-      "mcp__pencil"
-    ],
+    "allow": [],
     "deny": [
-      "Read(**/.env*)",
       "Read(**/.dev.vars*)",
       "Read(**/*.pem)",
       "Read(**/*.key)",
@@ -43,7 +35,6 @@
       "Read(**/config/credentials.json)",
       "Read(**/.npmrc)",
       "Read(**/.pypirc)",
-      "Write(**/.env*)",
       "Write(**/secrets/**)",
       "Write(**/.ssh/**)",
       "Write(.github/workflows/*)",
@@ -52,6 +43,9 @@
       "Bash(curl * | sh)"
     ],
     "ask": [
+	  "Read(**/.env*)",
+	  "Write(**/.env*)",
+	  
       "Bash(git -C push *)",
       "Bash(git push *)",
       "Bash(rm *)",
@@ -61,47 +55,7 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus",
-  "statusLine": {
-    "type": "command",
-    "command": "npx -y ccstatusline@latest",
-    "padding": 0,
-    "refreshInterval": 30
-  },
-  "enabledPlugins": {
-    "superpowers@claude-plugins-official": false,
-    "frontend-design@claude-plugins-official": false,
-    "feature-dev@claude-plugins-official": true,
-    "code-simplifier@claude-plugins-official": true,
-    "ralph-loop@claude-plugins-official": false,
-    "chrome-devtools-mcp@claude-plugins-official": false,
-    "code-review@claude-plugins-official": false,
-    "hookify@claude-plugins-official": false,
-    "security-guidance@claude-plugins-official": true,
-    "playground@claude-plugins-official": false,
-    "claude-code-setup@claude-plugins-official": true,
-    "plugin-dev@claude-plugins-official": true,
-    "skill-creator@claude-plugins-official": true,
-    "toast-notifications@claude-code-awesome": true,
-    "protective-hooks@claude-code-awesome": true,
-    "rss-aggregator@claude-code-awesome": true,
-    "minimal-claude@claude-code-awesome": true,
-    "micro-skill-pipeline@claude-code-awesome": false,
-    "llm-wiki-compiler@claude-code-awesome": false,
-    "tdd-guard@claude-code-awesome": false,
-    "obsidian@claude-code-awesome": true,
-    "agent-session-resume@claude-code-awesome": false,
-    "all-permissions@claude-code-awesome": true,
-    "last30days@claude-code-awesome": true,
-    "claude-code-clock@claude-code-awesome": true,
-    "context7@claude-plugins-official": true
-  },
-  "effortLevel": "low",
-  "autoUpdatesChannel": "latest",
-  "autoMemoryEnabled": true,
-  "skipDangerousModePermissionPrompt": true,
-  "autoCompactEnabled": true,
-  "mcpServers": {},
+  "model": "opus[1m]",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -113,5 +67,45 @@
         ]
       }
     ]
-  }
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "npx -y ccstatusline@latest",
+    "padding": 0,
+    "refreshInterval": 60
+  },
+  "enabledPlugins": {
+    "superpowers@claude-plugins-official": false,
+    "frontend-design@claude-plugins-official": false,
+    "feature-dev@claude-plugins-official": true,
+    "code-simplifier@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": false,
+    "chrome-devtools-mcp@claude-plugins-official": false,
+    "code-review@claude-plugins-official": false,
+    "hookify@claude-plugins-official": false,
+    "security-guidance@claude-plugins-official": false,
+    "playground@claude-plugins-official": false,
+    "claude-code-setup@claude-plugins-official": true,
+    "plugin-dev@claude-plugins-official": true,
+    "skill-creator@claude-plugins-official": true,
+    "toast-notifications@claude-code-awesome": true,
+    "protective-hooks@claude-code-awesome": true,
+    "rss-aggregator@claude-code-awesome": true,
+    "minimal-claude@claude-code-awesome": false,
+    "micro-skill-pipeline@claude-code-awesome": false,
+    "llm-wiki-compiler@claude-code-awesome": false,
+    "tdd-guard@claude-code-awesome": false,
+    "obsidian@claude-code-awesome": true,
+    "all-permissions@claude-code-awesome": true,
+    "last30days@claude-code-awesome": false,
+    "claude-code-clock@claude-code-awesome": true,
+    "context7@claude-plugins-official": true,
+    "pixelbrowse@claude-code-awesome": true,
+    "ponytail@claude-code-awesome": true
+  },
+  "effortLevel": "low",
+  "autoUpdatesChannel": "latest",
+  "autoMemoryEnabled": true,
+  "skipDangerousModePermissionPrompt": true,
+  "autoCompactEnabled": true
 }
