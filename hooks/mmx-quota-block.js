@@ -20,7 +20,7 @@ const path = require('path');
 
 const LOG_FILE = path.join(process.env.HOME, '.claude', 'hooks-logs', 'mmx-quota-block.jsonl');
 const CACHE_FILE = path.join(process.env.HOME, '.claude', 'hooks-logs', 'mmx-quota-cache.json');
-const THRESHOLD = 20; // block when API Left drops below 10%
+const THRESHOLD = 10; // block when API Left drops below 10%
 const CACHE_TTL = 60; // cache quota for 60 seconds
 const LOG_ENABLED = false; // set to true to enable logging
 

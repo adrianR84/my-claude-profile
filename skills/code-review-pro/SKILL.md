@@ -1,6 +1,6 @@
 ---
 name: code-review-pro
-description: Comprehensive code review covering security vulnerabilities, performance bottlenecks, best practices, and refactoring opportunities. Use when user requests code review, security audit, or performance analysis. TRIGGERS for: "review this code", "analyze files", "find bugs and issues", "security audit", "deep code analysis", "check for issues", "audit code", "parallel code review"
+description: 'Comprehensive code review covering security vulnerabilities, performance bottlenecks, best practices, and refactoring opportunities. Use when user requests code review, security audit, or performance analysis. TRIGGERS for: "review this code", "analyze files", "find bugs and issues", "security audit", "deep code analysis", "check for issues", "audit code", "parallel code review"'
 context: fork
 ---
 

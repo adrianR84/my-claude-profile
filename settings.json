@@ -35,17 +35,16 @@
       "Read(**/config/credentials.json)",
       "Read(**/.npmrc)",
       "Read(**/.pypirc)",
-      "Write(**/secrets/**)",
-      "Write(**/.ssh/**)",
-      "Write(.github/workflows/*)",
+      "Edit(**/secrets/**)",
+      "Edit(**/.ssh/**)",
+      "Edit(.github/workflows/*)",
       "Bash(sudo *)",
       "Bash(npm publish *)",
       "Bash(curl * | sh)"
     ],
     "ask": [
-	  "Read(**/.env*)",
-	  "Write(**/.env*)",
-	  
+      "Read(**/.env*)",
+      "Edit(**/.env*)",
       "Bash(git -C push *)",
       "Bash(git push *)",
       "Bash(rm *)",
@@ -55,7 +54,6 @@
     ],
     "defaultMode": "auto"
   },
-  "model": "opus[1m]",
   "hooks": {
     "UserPromptSubmit": [
       {
